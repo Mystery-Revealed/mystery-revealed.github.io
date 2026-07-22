@@ -1,78 +1,552 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>US History Apps · Part 2 · Mystery Revealed EdResources</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%97%BD%3C/text%3E%3C/svg%3E" />
-<style>
-  :root{
-    --parchment:#f4e9d2; --parchment-deep:#e9d8b4; --ink:#3a2a18; --ink-soft:#6a533a;
-    --accent:#3f5d7d; --accent-deep:#2c455f; --card:#fffaf0; --line:#cbb68d;
-    --shadow:0 6px 22px rgba(58,42,24,.15); --focus:#1c62d6;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0; font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
-    color:var(--ink); line-height:1.5; font-size:17px;
-    background:radial-gradient(1200px 600px at 50% -10%, #fbf3df 0%, var(--parchment) 55%, var(--parchment-deep) 100%);
-    min-height:100vh;
-  }
-  .wrap{max-width:760px; margin:0 auto; padding:28px 16px 16px;}
-  header{text-align:center; margin-bottom:8px;}
-  h1{font-family:Georgia,"Times New Roman",serif; font-size:clamp(28px,5vw,40px); margin:0 0 6px; color:var(--accent-deep);}
-  .lede{margin:0 auto; max-width:560px; color:var(--ink-soft); font-size:clamp(15px,2.4vw,18px);}
-  section.unit{margin-top:26px;}
-  .unit-head{display:flex; align-items:baseline; gap:10px; margin:0 0 10px;}
-  .unit-head .num{
-    font-family:Georgia,serif; font-weight:700; font-size:15px; color:#fff;
-    background:var(--accent); border-radius:8px; padding:2px 10px; white-space:nowrap;
-  }
-  .unit-head h2{
-    font-family:Georgia,serif; font-size:clamp(18px,3vw,22px);
-    margin:0; color:var(--accent-deep); letter-spacing:.2px;
-  }
-  .unit-head .rule{flex:1; border-bottom:1px dashed var(--line); transform:translateY(-4px);}
-  ul.apps{list-style:none; margin:0; padding:0; display:grid; gap:8px;}
-  ul.apps a{
-    display:block; padding:12px 16px; background:var(--card);
-    border:2px solid var(--line); border-radius:12px;
-    color:var(--accent-deep); font-weight:600; text-decoration:none; font-size:16px;
-    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-  }
-  ul.apps a:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--accent);}
-  ul.apps a:focus-visible{outline:3px solid var(--focus); outline-offset:2px;}
-  .growing{margin:26px 0 0; text-align:center; font-style:italic; color:var(--ink-soft); font-size:14px;}
-  nav.collections{margin:28px 0 0; text-align:center; font-size:14px; color:var(--ink-soft);}
-  nav.collections a{color:var(--accent-deep); font-weight:600; text-decoration:none;}
-  nav.collections a:hover{text-decoration:underline;}
-  footer{text-align:center; margin:14px 0 10px; font-size:13px; color:var(--ink-soft);}
-  @media (prefers-reduced-motion:reduce){ ul.apps a{transition:none;} }
-</style>
-</head>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.S. History, 1877–Present · Interactive Apps &amp; Games</title><style>
+:root{--ink:#20242b;--ink-soft:#565f6e;--paper:#f6f7fb;--card:#fff;--line:#dde2ea;
+--brand:#1f3864;--brand-deep:#152947;--gold:#b8860b;--app:#2f6f8f;--app-soft:#e6f0f4;
+--game:#8c2f39;--game-soft:#f7e6e8;--teacher:#7a5a12;--teacher-soft:#f7efd9;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px 72px}
+header.hero{background:linear-gradient(135deg,#152947,#1f3864 55%,#2c4a7c);color:#fff;
+padding:40px 20px 34px;text-align:center;position:relative;overflow:hidden}
+header.hero:before{content:"★";position:absolute;font-size:340px;opacity:.06;top:-70px;right:-20px;line-height:1}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative}
+.star{font-size:28px;color:var(--gold);display:block;margin-bottom:4px}
+h1{margin:0 0 8px;font-size:clamp(23px,3.6vw,34px);font-weight:800;letter-spacing:-.4px}
+.sub{margin:0 auto;max-width:720px;font-size:15.5px;opacity:.94}
+.hbadge{display:inline-block;margin-top:14px;font-size:13px;font-weight:700;background:rgba(255,255,255,.15);
+border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:7px 15px}
+.unit{margin-top:38px;scroll-margin-top:20px}
+.unit-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:3px solid var(--brand);
+padding-bottom:9px;margin-bottom:4px}
+.unit-num{background:var(--brand);color:#fff;font-weight:800;border-radius:9px;width:36px;height:36px;
+display:flex;align-items:center;justify-content:center;font-size:17px;flex:none}
+.unit-title{font-size:19px;font-weight:800;margin:0}
+.unit-era{font-size:12.5px;font-weight:700;color:var(--gold);background:#fdf4e3;padding:2px 10px;border-radius:999px}
+.grouplabel{font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-soft);
+margin:18px 0 2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:18px;margin-top:12px}
+.card{aspect-ratio:1/1;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);
+border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(20,30,50,.08),0 8px 20px rgba(20,30,50,.06);
+transition:transform .12s,box-shadow .12s}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 14px rgba(20,30,50,.13),0 18px 36px rgba(20,30,50,.12)}
+.art{position:relative;height:60%;background-size:cover;background-position:center;background-color:#dbe2ec}
+.tag{position:absolute;top:9px;left:9px;font-size:10.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;
+color:#fff;padding:4px 9px;border-radius:6px;backdrop-filter:blur(2px)}
+.tag.app{background:rgba(47,111,143,.92)}
+.tag.game{background:rgba(140,47,57,.92)}
+.teks{position:absolute;top:9px;right:9px;font-size:10.5px;font-weight:800;color:#20242b;background:rgba(255,255,255,.9);
+padding:4px 8px;border-radius:6px}
+.band{height:40%;padding:11px 13px 12px;display:flex;flex-direction:column;gap:4px;border-top:4px solid var(--app)}
+.card.game .band{border-top-color:var(--game)}
+.b-title{font-size:15px;font-weight:800;line-height:1.16;margin:0}
+.b-desc{font-size:11.7px;color:var(--ink-soft);line-height:1.32;margin:0;overflow:hidden;
+display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.access{margin-top:auto;font-size:10.6px;font-weight:800;letter-spacing:.3px;padding:5px 8px;border-radius:7px;
+display:flex;align-items:center;gap:6px}
+.access.student{background:var(--game-soft);color:var(--game)}
+.access.teacher{background:var(--teacher-soft);color:var(--teacher)}
+.access.free{background:var(--app-soft);color:var(--app)}
+footer{text-align:center;color:var(--ink-soft);font-size:12.5px;margin-top:44px;padding-top:20px;border-top:1px solid var(--line)}
+.note{max-width:1200px;margin:26px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;
+padding:14px 18px;font-size:13px;color:var(--ink-soft)}
+.note b{color:var(--ink)}
+</style></head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>US History Apps · Part 2</h1>
-      <p class="lede">1877 to the Present — interactive apps organized by unit.</p>
-    </header>
+<header class="hero"><div class="hero-inner"><span class="star">★</span>
+<h1>U.S. History, 1877–Present · Interactive Apps &amp; Games</h1><p class="sub">Click a thumbnail to open the interactive app or the student version of a game. Games require membership.</p><span class="hbadge">21 Interactive Apps · 21 Games · 7 Units</span></div></header>
+<div class="wrap">
+<section class="unit">
+  <div class="unit-head"><div class="unit-num">★</div><h2 class="unit-title">Featured Game</h2><span class="unit-era">Video Game</span></div>
+  <div class="grid">
+    <a class="card game" href="/coming-soon/?item=chronos-protocol&type=game" title="Chronos Protocol">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260718_164502_07217dcb-bb30-4725-8edf-292ff752562f.png')">
+        <span class="tag game">🎮 Video Game</span><span class="teks" style="background:#fdf4e3;color:#8a6400">★ Featured</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Chronos Protocol</p>
+        <p class="b-desc">Your flagship time-travel video game — journey through pivotal moments in history and shape what happens next.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+  </div></section>
+<section class="unit">
+  <div class="unit-head"><div class="unit-num">1</div><h2 class="unit-title">The Gilded Age</h2><span class="unit-era">1877–1898</span></div>
+  <div class="grouplabel">🧩 Interactive Apps</div><div class="grid">
+    <a class="card app" href="/coming-soon/?item=boss-tweed&type=app" title="Boss Tweed&#x27;s Money Machine">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_154353_14247a5c-02b3-480a-b3b4-704e2804f25b.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (3)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Boss Tweed&#x27;s Money Machine</p>
+        <p class="b-desc">Tap a corrupt city budget to expose what Tammany Hall really charged — and decode Thomas Nast&#x27;s cartoons.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=rich-poor&type=app" title="Rich Side / Poor Side Slider">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155709_91999b60-ed39-4f22-a9fc-558b205dd9d3.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (3)(C)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Rich Side / Poor Side Slider</p>
+        <p class="b-desc">Slide between a Fifth Avenue mansion and a tenement to compare Gilded Age wealth and poverty.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="https://apps.mysteryrevealededresources.com/map-of-an-industrial-nation/" title="Map of an Industrial Nation">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155714_814a1af0-9cb7-4a16-9bb4-cfba89c12392.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (3)(B), (12), (13)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Map of an Industrial Nation</p>
+        <p class="b-desc">Click an industrializing U.S. map — steel, strikes, the Dawes Act, and new immigrants.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+</div>
+<div class="grouplabel">🎮 Games — Student Access</div><div class="grid">
+    <a class="card game" href="/coming-soon/?item=choose-1890s&type=game" title="Choose Your 1890s Life">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155721_84d6a6c8-6a60-474a-912b-b52d984a1ce6.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (3)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Choose Your 1890s Life</p>
+        <p class="b-desc">Live the 1890s as a worker, farmer, steelworker, or reporter — your choices change the ending.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=trust-buster&type=game" title="Trust Buster Tycoon">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155725_0151ed9f-2037-48ef-a42b-a0547f4e0334.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (3)(B), (15)(B)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Trust Buster Tycoon</p>
+        <p class="b-desc">Build a Rockefeller-style trust, then face the backlash that led to the Sherman Antitrust Act.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=save-homestead&type=game" title="Save the Homestead">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155728_2cd75df0-2e62-4702-bc80-50f465d885f8.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (3)(B)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Save the Homestead</p>
+        <p class="b-desc">Keep a wheat farm alive through debt and falling prices in the gold-vs-silver fight.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+</div>
+</section>
+<section class="unit">
+  <div class="unit-head"><div class="unit-num">2</div><h2 class="unit-title">Rise to World Power &amp; The Progressive Era</h2><span class="unit-era">1898–1920</span></div>
+  <div class="grouplabel">🧩 Interactive Apps</div><div class="grid">
+    <a class="card app" href="/coming-soon/?item=yellow-journalism&type=app" title="Yellow Journalism Press Room">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155803_95e38b76-94c4-4aaa-9537-48d7b966c07c.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (4)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Yellow Journalism Press Room</p>
+        <p class="b-desc">Compare sensational 1898 headlines to the facts and see how the press pushed the country to war.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=empire-builder&type=app" title="Empire Builder Map">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155806_b9e5a5d0-51b0-47d2-8787-b73ee4d0d4cc.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (4)(B)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Empire Builder Map</p>
+        <p class="b-desc">Map how Hawaii, Cuba, the Philippines, and the Panama Canal joined America&#x27;s new empire.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=muckraker-desk&type=app" title="Muckraker&#x27;s Desk">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155810_22624f50-e9d2-4c20-be77-ec1a1ed00a53.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (5)(B)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Muckraker&#x27;s Desk</p>
+        <p class="b-desc">Open real exposés — The Jungle, Standard Oil, anti-lynching pamphlets — and see the laws they sparked.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+</div>
+<div class="grouplabel">🎮 Games — Student Access</div><div class="grid">
+    <a class="card game" href="/coming-soon/?item=big-stick&type=game" title="Big Stick Diplomacy">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155813_abc65fae-55f3-4044-95c1-9150d65151c6.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (4)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Big Stick Diplomacy</p>
+        <p class="b-desc">Play Theodore Roosevelt: speak softly or swing the big stick, and watch each path play out.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=doughboy&type=game" title="Doughboy: Trial by Fire">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155820_8cddd6d7-5903-403f-84f5-a0ab4ebbab9b.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (4)(D)-(E)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Doughboy: Trial by Fire</p>
+        <p class="b-desc">Make tactical calls as a doughboy in the Meuse-Argonne, WWI&#x27;s deadliest American campaign.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=silent-sentinel&type=game" title="Silent Sentinel">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155817_50d470e9-6d7d-4fe0-93d0-37b9258bddf9.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (5)(A), (22)(B)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Silent Sentinel</p>
+        <p class="b-desc">Picket as a 1917 suffragist, balancing bold protest and arrest on the road to the 19th Amendment.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+</div>
+</section>
+<section class="unit">
+  <div class="unit-head"><div class="unit-num">3</div><h2 class="unit-title">The Roaring Twenties &amp; The Great Depression</h2><span class="unit-era">1920–1941</span></div>
+  <div class="grouplabel">🧩 Interactive Apps</div><div class="grid">
+    <a class="card app" href="/coming-soon/?item=speakeasy&type=app" title="Speakeasy Secrets">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155842_af5bcd63-3efe-4be0-b5b4-6f054c3cb604.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (6)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Speakeasy Secrets</p>
+        <p class="b-desc">Explore a hidden speakeasy to learn Prohibition, organized crime, and flapper culture.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=assembly-line&type=app" title="Assembly Line Simulator">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155846_aa98a8e0-2bf5-44ce-8d28-d7f8e51d7c96.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (6)(B)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Assembly Line Simulator</p>
+        <p class="b-desc">Build a Model T on the moving line and uncover the strings behind Ford&#x27;s $5 day.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=new-deal-soup&type=app" title="New Deal Alphabet Soup">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155850_9be4c068-2a23-4193-9d05-a8292ee756da.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (16)(E)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">New Deal Alphabet Soup</p>
+        <p class="b-desc">Click the New Deal &#x27;alphabet soup&#x27; — FDIC, SSA, CCC — and see what still shapes America today.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+</div>
+<div class="grouplabel">🎮 Games — Student Access</div><div class="grid">
+    <a class="card game" href="/coming-soon/?item=bootlegger&type=game" title="Bootlegger&#x27;s Run">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155854_69fcb184-bf5e-439c-9c1a-15b942514635.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (6)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Bootlegger&#x27;s Run</p>
+        <p class="b-desc">Make risk-and-reward calls as an agent, bootlegger, or speakeasy owner in Prohibition.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=dust-bowl&type=game" title="Dust Bowl Survivor">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_155945_72d1815e-e069-4d6a-bd5f-efc2729fb798.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (12), (16)(C)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Dust Bowl Survivor</p>
+        <p class="b-desc">Guide an Oklahoma farm family through drought, dust storms, and the choice to stay or go west.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=pass-new-deal&type=game" title="Pass the New Deal">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160309_c2222568-1cf4-4921-9979-aebf32952bfd.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (16)(D), (18)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Pass the New Deal</p>
+        <p class="b-desc">Vote on New Deal programs as rival characters, then face the Court and the court-packing fight.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+</div>
+</section>
+<section class="unit">
+  <div class="unit-head"><div class="unit-num">4</div><h2 class="unit-title">World War II &amp; The Cold War</h2><span class="unit-era">1941–1991</span></div>
+  <div class="grouplabel">🧩 Interactive Apps</div><div class="grid">
+    <a class="card app" href="/coming-soon/?item=home-front&type=app" title="Home Front Command Center">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160311_3bd07e83-e333-49d1-b47e-a089be914bcf.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (7)(F)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Home Front Command Center</p>
+        <p class="b-desc">Tap a 1940s home front — ration book, victory garden, Rosie, Double V — to see the war&#x27;s reach.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=two-theaters&type=app" title="Two Theaters, One War">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160313_7a5cb001-e8b5-4d9c-b2e0-4c792b5176de.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (7)(D)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Two Theaters, One War</p>
+        <p class="b-desc">Explore the Pacific and European theaters on a split WWII map, side by side.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=thirteen-days&type=app" title="Thirteen Days: An Interactive Clock">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160347_dd7493b9-bb30-45f2-8e33-89acce2c92e6.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (8)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Thirteen Days: An Interactive Clock</p>
+        <p class="b-desc">Walk the Cuban Missile Crisis day by day, from the U-2 photos to the secret Turkey deal.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+</div>
+<div class="grouplabel">🎮 Games — Student Access</div><div class="grid">
+    <a class="card game" href="/coming-soon/?item=island-hop&type=game" title="Island Hop">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160349_81f7c9ef-ab46-4b0f-81da-cb29937677ca.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (7)(D)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Island Hop</p>
+        <p class="b-desc">Choose which Pacific islands to take or bypass — and learn why it saved time and lives.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=excomm&type=game" title="ExComm: 13 Days">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160808_01fc565c-7013-46d0-a512-12311aa8b9b8.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (8)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">ExComm: 13 Days</p>
+        <p class="b-desc">Advise President Kennedy through 13 days: air strike, invasion, blockade, or diplomacy.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=credibility-gap&type=game" title="Credibility Gap">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160550_0b86f1ca-b1fe-4fde-b5cf-f7a764031e19.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (8)(E)-(F)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Credibility Gap</p>
+        <p class="b-desc">Play a soldier and a journalist to reveal the gap between war reports and reality.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+</div>
+</section>
+<section class="unit">
+  <div class="unit-head"><div class="unit-num">5</div><h2 class="unit-title">The Civil Rights Movement &amp; Social Change</h2><span class="unit-era">1950s–1970s</span></div>
+  <div class="grouplabel">🧩 Interactive Apps</div><div class="grid">
+    <a class="card app" href="/coming-soon/?item=plessy-brown&type=app" title="From Plessy to Brown: The Case Ladder">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160552_d13b839c-1bfe-47d3-9d4d-408ead9b2837.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (9)(J), (20)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">From Plessy to Brown: The Case Ladder</p>
+        <p class="b-desc">Climb the case ladder — Plessy, Sweatt, Hernandez, Brown — that dismantled &#x27;separate but equal.&#x27;</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=jim-crow&type=app" title="Jim Crow&#x27;s Three Layers">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160812_40dc5c4d-ef34-4a14-b2cb-d1074b7927f8.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (9)(B)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Jim Crow&#x27;s Three Layers</p>
+        <p class="b-desc">Peel back Jim Crow&#x27;s three layers: laws, &#x27;etiquette,&#x27; and terror.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=anatomy-boycott&type=app" title="Anatomy of a Boycott">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160608_2281157a-6c51-47c1-94fe-71e66e8a42ae.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (9)(D)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Anatomy of a Boycott</p>
+        <p class="b-desc">Meet the real planners behind the Montgomery Bus Boycott — Parks, Colvin, Robinson, Nixon.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+</div>
+<div class="grouplabel">🎮 Games — Student Access</div><div class="grid">
+    <a class="card game" href="/coming-soon/?item=build-case&type=game" title="Build the Case">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160814_a9f1adbe-4b9e-4af6-9bb9-1d50c7ca23e6.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (9)(J)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Build the Case</p>
+        <p class="b-desc">Play an NAACP lawyer sequencing the cases that toppled school segregation.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=sit-in&type=game" title="Sit-In">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160657_b7dadb5e-90fc-4a4f-a649-fe693fe00544.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (9)(F)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Sit-In</p>
+        <p class="b-desc">Hold to nonviolence under pressure at a lunch-counter sit-in and keep public sympathy.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=selma&type=game" title="Selma: Bloody Sunday to the Vote">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160659_6b1b94c8-09fc-4791-b8ad-fa81eefee8ef.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (9)(G)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Selma: Bloody Sunday to the Vote</p>
+        <p class="b-desc">March the stages of Selma to the passage of the Voting Rights Act.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+</div>
+</section>
+<section class="unit">
+  <div class="unit-head"><div class="unit-num">6</div><h2 class="unit-title">The Conservative Resurgence &amp; The 21st Century</h2><span class="unit-era">1980–Present</span></div>
+  <div class="grouplabel">🧩 Interactive Apps</div><div class="grid">
+    <a class="card app" href="/coming-soon/?item=three-legged&type=app" title="The Three-Legged Stool">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160816_f9a6445c-977e-499b-ad70-9e645385d523.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (10)(D)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">The Three-Legged Stool</p>
+        <p class="b-desc">Click the New Right&#x27;s &#x27;three-legged stool&#x27; — plus the Moral Majority and Heritage Foundation.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=reaganomics&type=app" title="Reaganomics Report Card">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_161311_229c29a5-79f7-4423-91c2-a00bc55a184d.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (10)(B), (17)(C)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Reaganomics Report Card</p>
+        <p class="b-desc">Weigh Reaganomics with real 1980s data on inflation, jobs, and the national debt.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=wall&type=app" title="The Wall Comes Down">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_161049_9c7e7900-0f53-4d28-a633-cdbfb03fcf3a.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (11)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">The Wall Comes Down</p>
+        <p class="b-desc">Follow the news-ticker of 1989 to the night the Berlin Wall came down.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+</div>
+<div class="grouplabel">🎮 Games — Student Access</div><div class="grid">
+    <a class="card game" href="/coming-soon/?item=iran-contra&type=game" title="Iran-Contra: Connect the Dots">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_161314_a19922f2-6c63-4746-a28f-0b75081795b7.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (10)(C), (18)(C)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Iran-Contra: Connect the Dots</p>
+        <p class="b-desc">Connect the clues linking arms sales to Iran and secret funding for the Contras.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=pajama-summit&type=game" title="The Pajama Summit">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_160937_4602be2d-08d2-4a27-b1d1-8a72dd4411a9.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (10)(B)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">The Pajama Summit</p>
+        <p class="b-desc">Play Reagan winning votes for the 1981 tax cut in a high-stakes negotiation.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=domino-detente&type=game" title="Domino or Détente?">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_161317_b5c0134b-303b-41ff-8542-37b19623e164.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (8), (11)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Domino or Détente?</p>
+        <p class="b-desc">Choose reform or hardline moves and watch the Soviet bloc fall, 1989–1991.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+</div>
+</section>
+<section class="unit">
+  <div class="unit-head"><div class="unit-num">7</div><h2 class="unit-title">Social Studies Skills</h2><span class="unit-era">Cross-Cutting — Use All Year</span></div>
+  <div class="grouplabel">🧩 Interactive Apps</div><div class="grid">
+    <a class="card app" href="/coming-soon/?item=primary-secondary&type=app" title="Primary or Secondary?">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_161709_85341151-e192-45f4-8a8a-3f105cd48b0b.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (28)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Primary or Secondary?</p>
+        <p class="b-desc">Sort diaries, photos, textbooks, and news into primary vs. secondary sources.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=spot-bias&type=app" title="Spot the Bias">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_161713_92a41cf9-b02b-42c3-b592-bf798bb5b848.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (28)(D)-(E)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Spot the Bias</p>
+        <p class="b-desc">Highlight loaded words and viewpoints hidden inside real primary-source excerpts.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+    <a class="card app" href="/coming-soon/?item=chronology&type=app" title="Chronology Trainer">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_161716_b66cc324-4ab9-4350-9228-115fad625b03.png')">
+        <span class="tag app">🧩 Interactive App</span><span class="teks">TEKS (2)(A)-(B)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Chronology Trainer</p>
+        <p class="b-desc">Tap a timeline of turning-point years to see why each one changed history.</p>
+        <div class="access free">🔓 Open access · no login</div>
+      </div>
+    </a>
+</div>
+<div class="grouplabel">🎮 Games — Student Access</div><div class="grid">
+    <a class="card game" href="/coming-soon/?item=timeline-detective&type=game" title="Timeline Detective">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_161913_6e6f9f4f-20f2-4ec3-bd50-0ba123ab01bd.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (2)(B), (28)(B)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Timeline Detective</p>
+        <p class="b-desc">Race the clock to put U.S. history&#x27;s turning-point years in order.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=source-sleuth&type=game" title="Source Sleuth">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_161955_df14ff44-e06e-4fad-8712-639c66ae3a82.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (28)(D)-(E)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Source Sleuth</p>
+        <p class="b-desc">Use primary-source clues to crack a history case — and test if a source can be trusted.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+    <a class="card game" href="/coming-soon/?item=claim-evidence&type=game" title="Claim &amp; Evidence Builder">
+      <div class="art" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_39bE9HNN5SyOWZS0DUvCzFO2eZR/hf_20260714_161959_2e9478a1-d165-4e5f-9cdb-f3390fea616f.png')">
+        <span class="tag game">🎮 Game</span><span class="teks">TEKS (28)(F), (29)(A)</span>
+      </div>
+      <div class="band">
+        <p class="b-title">Claim &amp; Evidence Builder</p>
+        <p class="b-desc">Build an evidence-backed claim by choosing strong facts and rejecting weak ones.</p>
+        <div class="access student">🔒 Membership required · Student access</div>
+      </div>
+    </a>
+</div>
+</section>
 
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 1</span><h2>The Gilded Age</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/map-of-an-industrial-nation/">Map of an Industrial Nation</a></li>
-      </ul>
-    </section>
 
-    <p class="growing">More apps are on the way — new ones appear here as they go live.</p>
-
-    <nav class="collections">
-      <a href="/">All courses</a> ·
-      <a href="/us-history-part-1/">US History Part 1 · Colonization through 1877</a> ·
-      <a href="/texas-history/">Texas History</a>
-    </nav>
-
-    <footer>Made for US History · Mystery Revealed EdResources</footer>
-  </div>
-</body>
-</html>
+<div style="text-align:center;margin:34px auto 14px;font-size:14px;font-family:Arial,Helvetica,sans-serif;">
+  <a href="/" style="color:#2f6f8f;font-weight:700;text-decoration:none">&#8962; All Courses</a> &nbsp;&middot;&nbsp;
+  <a href="/texas-history/" style="color:#2f6f8f;font-weight:700;text-decoration:none">Texas History</a> &nbsp;&middot;&nbsp;
+  <a href="/us-history-part-1/" style="color:#2f6f8f;font-weight:700;text-decoration:none">US History Pt 1</a> &nbsp;&middot;&nbsp;
+  <a href="/us-history-part-2/" style="color:#2f6f8f;font-weight:700;text-decoration:none">US History Pt 2</a>
+</div>
+<footer>Mystery Revealed EdResources · 11th Grade U.S. History Since 1877 · Aligned to TEKS §113.41 (Adopted 2022)</footer>
+</div></body></html>

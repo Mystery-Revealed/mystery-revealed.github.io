@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coming Soon · Mystery Revealed EdResources</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%E2%8F%B3%3C/text%3E%3C/svg%3E" />
+<style>
+  :root{
+    --parchment:#f4e9d2; --parchment-deep:#e9d8b4; --ink:#3a2a18; --ink-soft:#6a533a;
+    --brand:#9e2b25; --brand-deep:#7a201c; --gold:#c88a2e; --card:#fffaf0; --line:#cbb68d;
+    --shadow:0 6px 22px rgba(58,42,24,.18); --focus:#1c62d6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:Georgia,"Times New Roman",serif; color:var(--ink); line-height:1.5;
+    background:radial-gradient(1200px 600px at 50% -10%, #fbf3df 0%, var(--parchment) 55%, var(--parchment-deep) 100%);
+    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px 16px;
+  }
+  .card{
+    max-width:680px; width:100%; background:var(--card); border:2px solid var(--line);
+    border-radius:18px; overflow:hidden; box-shadow:var(--shadow); text-align:center;
+  }
+  .card img{width:100%; aspect-ratio:16/9; object-fit:cover; display:block;}
+  .inner{padding:26px 28px 24px;}
+  .kicker{
+    display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:12px; font-weight:800;
+    letter-spacing:1.2px; text-transform:uppercase; color:#fff; background:var(--gold);
+    padding:5px 14px; border-radius:999px; margin-bottom:12px;
+  }
+  h1{margin:0 0 10px; font-size:clamp(24px,4.6vw,34px); color:var(--brand-deep); line-height:1.15;}
+  p.msg{margin:0 auto; max-width:480px; font-size:clamp(15px,2.6vw,17px); color:var(--ink-soft);}
+  .links{
+    margin-top:22px; padding-top:16px; border-top:1px dashed var(--line);
+    font-family:Arial,Helvetica,sans-serif; font-size:14px; color:var(--ink-soft);
+  }
+  .links a{color:var(--brand-deep); font-weight:700; text-decoration:none;}
+  .links a:hover{text-decoration:underline;}
+  .links a:focus-visible{outline:3px solid var(--focus); outline-offset:2px; border-radius:4px;}
+  footer{margin-top:14px; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:var(--ink-soft);}
+</style>
+</head>
+<body>
+  <main class="card">
+    <img src="history.jpg" alt="A historian's desk in warm candlelight: an open book with blank parchment pages, a quill in its inkwell, rolled maps, a compass, and an hourglass with sand still falling." />
+    <div class="inner">
+      <span class="kicker">Coming Soon</span>
+      <h1 id="headline">This page is still being written</h1>
+      <p class="msg" id="message">We're building it right now. Check back soon — history takes a little time.</p>
+      <div class="links">
+        Meanwhile, explore what's already live:<br>
+        <a href="/">&#8962; All Courses</a> &nbsp;&middot;&nbsp;
+        <a href="/texas-history/">Texas History</a> &nbsp;&middot;&nbsp;
+        <a href="/us-history-part-1/">US History Pt&nbsp;1</a> &nbsp;&middot;&nbsp;
+        <a href="/us-history-part-2/">US History Pt&nbsp;2</a>
+      </div>
+      <footer>Mystery Revealed EdResources</footer>
+    </div>
+  </main>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var title = q.get('title');
+  var item = q.get('item');
+  var type = (q.get('type') === 'game') ? 'game' : 'app';
+  if (!title && item) {
+    title = item.replace(/^us-/,'').split('-').map(function(w){
+      return w ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+    }).join(' ');
+  }
+  if (title) {
+    document.getElementById('headline').textContent = title + ' is coming soon';
+    document.getElementById('message').textContent =
+      'This ' + type + ' is still being built. Check back soon — history takes a little time.';
+    document.title = title + ' · Coming Soon · Mystery Revealed EdResources';
+  }
+})();
+</script>
+</body>
+</html>

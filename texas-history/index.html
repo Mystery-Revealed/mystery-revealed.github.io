@@ -1,141 +1,607 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Texas History Apps · Mystery Revealed EdResources</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%8C%9F%3C/text%3E%3C/svg%3E" />
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Texas History Interactive Apps &amp; Games | Mystery Revealed EdResources</title>
 <style>
-  :root{
-    --parchment:#f4e9d2; --parchment-deep:#e9d8b4; --ink:#3a2a18; --ink-soft:#6a533a;
-    --sage:#5c6e4a; --sage-deep:#41512f; --clay:#b5502e; --card:#fffaf0; --line:#cbb68d;
-    --shadow:0 6px 22px rgba(58,42,24,.15); --focus:#1c62d6;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0; font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
-    color:var(--ink); line-height:1.5; font-size:17px;
-    background:radial-gradient(1200px 600px at 50% -10%, #fbf3df 0%, var(--parchment) 55%, var(--parchment-deep) 100%);
-    min-height:100vh;
-  }
-  .wrap{max-width:760px; margin:0 auto; padding:28px 16px 16px;}
-  header{text-align:center; margin-bottom:8px;}
-  h1{font-family:Georgia,"Times New Roman",serif; font-size:clamp(28px,5vw,40px); margin:0 0 6px; color:var(--sage-deep);}
-  .lede{margin:0 auto; max-width:560px; color:var(--ink-soft); font-size:clamp(15px,2.4vw,18px);}
-  section.unit{margin-top:26px;}
-  .unit-head{display:flex; align-items:baseline; gap:10px; margin:0 0 10px;}
-  .unit-head .num{
-    font-family:Georgia,serif; font-weight:700; font-size:15px; color:#fff;
-    background:var(--sage); border-radius:8px; padding:2px 10px; white-space:nowrap;
-  }
-  .unit-head h2{
-    font-family:Georgia,serif; font-size:clamp(18px,3vw,22px);
-    margin:0; color:var(--sage-deep); letter-spacing:.2px;
-  }
-  .unit-head .rule{flex:1; border-bottom:1px dashed var(--line); transform:translateY(-4px);}
-  ul.apps{list-style:none; margin:0; padding:0; display:grid; gap:8px;}
-  ul.apps a{
-    display:block; padding:12px 16px; background:var(--card);
-    border:2px solid var(--line); border-radius:12px;
-    color:var(--sage-deep); font-weight:600; text-decoration:none; font-size:16px;
-    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-  }
-  ul.apps a:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--sage);}
-  ul.apps a:focus-visible{outline:3px solid var(--focus); outline-offset:2px;}
-  nav.collections{margin:28px 0 0; text-align:center; font-size:14px; color:var(--ink-soft);}
-  nav.collections a{color:var(--sage-deep); font-weight:600; text-decoration:none;}
-  nav.collections a:hover{text-decoration:underline;}
-  footer{text-align:center; margin:14px 0 10px; font-size:13px; color:var(--ink-soft);}
-  @media (prefers-reduced-motion:reduce){ ul.apps a{transition:none;} }
-</style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <h1>Texas History Apps</h1>
-      <p class="lede">Interactive maps, timelines, and explorers for 7th Grade Texas History — organized by unit.</p>
-    </header>
+:root{--ink:#2b2320;--ink-soft:#5c5148;--paper:#fbf7f0;--brand:#9e2b25;--brand-deep:#7a201c;
+--gold:#c88a2e;--teal:#2f6f8f;--orange:#b5651d;--chip:#efe8de;--app-soft:#e6f0f4;--game-soft:#f6e9dc;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);font-family:Georgia,"Liberation Serif",serif;color:var(--ink);padding:0 0 60px}
+.hero{background:var(--brand-deep);color:#fff;padding:46px 24px 38px;text-align:center}
+.hero h1{font-family:Georgia,serif;font-size:clamp(28px,4vw,42px);margin-bottom:10px;letter-spacing:.3px}
+.hero p{color:#f1ded9;font-size:16px;max-width:720px;margin:0 auto;line-height:1.5}
+.hero .tag{display:inline-block;margin-top:16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);
+border-radius:999px;padding:6px 16px;font-size:13px;font-weight:700;letter-spacing:.4px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.unit{margin-top:48px}
+.unit-head{border-bottom:3px solid var(--gold);padding-bottom:10px;margin-bottom:22px;display:flex;
+align-items:baseline;gap:14px;flex-wrap:wrap}
+.unit-head h2{font-size:24px;color:var(--brand);white-space:nowrap}
+.unit-head span{color:var(--ink-soft);font-size:14px;font-style:italic}
+.subhead{font-size:12.5px;font-weight:800;letter-spacing:1px;color:var(--ink-soft);text-transform:uppercase;
+margin:22px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+a.cardlink{text-decoration:none;color:inherit;display:block}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 1px 4px rgba(40,30,20,.10),
+0 8px 20px rgba(40,30,20,.08);transition:transform .15s ease,box-shadow .15s ease;height:100%;
+display:flex;flex-direction:column}
+a.cardlink:hover .card{transform:translateY(-3px);box-shadow:0 4px 10px rgba(40,30,20,.14),0 16px 28px rgba(40,30,20,.14)}
+.illo{width:100%;aspect-ratio:1264/848;object-fit:cover;display:block;background:#7a201c}
+.accent{height:5px}
+.panel{padding:14px 16px 0;flex:1}
+.toprow{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:9px}
+.badge{font-size:10.5px;font-weight:800;letter-spacing:.5px;color:#fff;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.teks{font-size:10px;font-weight:800;color:var(--ink-soft);background:var(--chip);padding:3px 8px;
+border-radius:999px;white-space:nowrap;text-align:right}
+.title{font-size:18px;font-weight:700;color:var(--brand);line-height:1.2;margin-bottom:6px;font-family:Georgia,serif}
+.desc{font-size:13px;color:var(--ink-soft);line-height:1.45;margin-bottom:14px;font-family:Arial,Helvetica,sans-serif}
+.band{padding:10px 14px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.3px;text-align:center;
+font-family:Arial,Helvetica,sans-serif}
+.t-app .accent,.t-app .band{background:var(--teal)} .t-app .badge{background:var(--teal)}
+.t-student .accent,.t-student .band{background:var(--orange)} .t-student .badge{background:var(--orange)}
+.t-teacher .accent,.t-teacher .band{background:var(--brand-deep)} .t-teacher .badge{background:var(--brand-deep)}
+.foot{max-width:1180px;margin:60px auto 0;padding:24px;text-align:center;color:var(--ink-soft);
+font-size:12.5px;font-family:Arial,Helvetica,sans-serif;border-top:1px solid var(--chip)}
+</style></head><body>
+<div class="hero"><h1>Texas History: Interactive Apps &amp; Games</h1>
+<p>Explore all eight units of 7th grade Texas History (TEKS §113.19) through click-and-explore apps and story-driven games. Interactive apps are free to use. Games are free for students to play &mdash; a class membership unlocks the Teacher Command Center with live results and downloadable reports.</p>
+<span class="tag">Games require membership for teacher tools &nbsp;•&nbsp; Apps are always open</span></div>
+<div class="wrap"><div class="unit"><div class="unit-head"><h2>Featured: Cross-Curricular</h2><span>Multiplayer &amp; Multi-Grade</span></div><div class="subhead">Games &mdash; Student Access</div><div class="grid"><a class="cardlink" href="/coming-soon/?item=chronos-protocol&access=student&title=The+Chronos+Protocol&type=game&teks=Cross-Unit">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_63d1bef56a8744a1af594d49cb61dcc6~mv2.png" alt="The Chronos Protocol" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS Cross-Unit</span></div>
+          <div class="title">The Chronos Protocol</div>
+          <div class="desc">A live multiplayer mission: student teams make branching history choices to stop a villain from rewriting the timeline.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a></div></div><div class="unit"><div class="unit-head"><h2>Unit 1: Natural Texas and Its People</h2><span>Before European Contact</span></div><div class="subhead">Interactive Apps</div><div class="grid"><a class="cardlink" href="https://apps.mysteryrevealededresources.com/texas-interactive-map/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_655a7680f3484a18b53627816bbf9c4a~mv2.png" alt="Texas Geography & Native Peoples Map" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.2A, 7.8A</span></div>
+          <div class="title">Texas Geography & Native Peoples Map</div>
+          <div class="desc">An interactive map of Texas that switches between its physical regions and its Native culture groups, with facts on climate, resources, and daily life.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/four-corners-tribe-map/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_f6318f94aea247b18048feaaabaae2a1~mv2.png" alt="Four Corners Tribe Map" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.2A, 7.8A</span></div>
+          <div class="title">Four Corners Tribe Map</div>
+          <div class="desc">A clickable map of Texas split into four regions to meet the Karankawa, Comanche, Jumano, and Caddo.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/build-a-home-explorer/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_d848c0625b874c0eb3527ec287e7e429~mv2.png" alt="Build-a-Home Explorer" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.2A, 7.9A</span></div>
+          <div class="title">Build-a-Home Explorer</div>
+          <div class="desc">Click the parts of a wigwam, teepee, pueblo, and grass house to see how geography shaped shelter.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/whats-for-dinner/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_9bfa199143904d0eb9618671e112c007~mv2.png" alt="What's for Dinner?" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.2A</span></div>
+          <div class="title">What's for Dinner?</div>
+          <div class="desc">A drag-and-drop widget matching foods like fish, buffalo, corn, and berries to the right tribe.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a></div><div class="subhead">Games &mdash; Student Access</div><div class="grid"><a class="cardlink" href="/coming-soon/?item=survive-the-season&access=student&title=Survive+the+Season&type=game&teks=7.2A+7.9A">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_f7b17958c775416dbd78d750c37718e4~mv2.png" alt="Survive the Season" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.2A, 7.9A</span></div>
+          <div class="title">Survive the Season</div>
+          <div class="desc">A choice game: play a member of one tribe through four seasons, making choices that match real regional life.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=tribe-match-challenge&access=student&title=Tribe+Match+Challenge&type=game&teks=7.2A">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_a100f55a17c04720ad4965a84c3f490b~mv2.png" alt="Tribe Match Challenge" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.2A</span></div>
+          <div class="title">Tribe Match Challenge</div>
+          <div class="desc">A fast quiz game: match homes, foods, and tools to the correct culture group before time runs out.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=follow-the-buffalo&access=student&title=Follow+the+Buffalo&type=game&teks=7.2A">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_0d2032e417b84de28dc1d03d81df46a9~mv2.png" alt="Follow the Buffalo" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.2A</span></div>
+          <div class="title">Follow the Buffalo</div>
+          <div class="desc">A strategy game guiding a Plains band following the buffalo herd and discovering how the Spanish horse changed everything.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a></div></div><div class="unit"><div class="unit-head"><h2>Unit 2: Age of Contact & Spanish Colonial</h2><span>1519-1821</span></div><div class="subhead">Interactive Apps</div><div class="grid"><a class="cardlink" href="https://apps.mysteryrevealededresources.com/explorers-routes-map/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_c72d27bc12334195b3186bbcdd57bc18~mv2.png" alt="Explorers' Routes Map" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.2B</span></div>
+          <div class="title">Explorers' Routes Map</div>
+          <div class="desc">An interactive map with a 1519-1821 timeline slider tracing Pineda, Cabeza de Vaca, and La Salle.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/anatomy-of-a-mission/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_474bb57973784733bcab126fd7d79e16~mv2.png" alt="Anatomy of a Mission" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.2C</span></div>
+          <div class="title">Anatomy of a Mission</div>
+          <div class="desc">Click the parts of a mission and presidio to learn a mission's two jobs: spreading religion and Spanish power.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/meet-the-missionaries/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_d711728d9ab4427faed27721a9545246~mv2.png" alt="Meet the Missionaries" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.2C</span></div>
+          <div class="title">Meet the Missionaries</div>
+          <div class="desc">A flip-card widget for Fray Damian Massanet, Antonio Margil de Jesus, and Francisco Hidalgo.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a></div><div class="subhead">Games &mdash; Student Access</div><div class="grid"><a class="cardlink" href="/coming-soon/?item=cabeza-de-vaca-s-journey&access=student&title=Cabeza+de+Vaca's+Journey&type=game&teks=7.2B">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_5fb8331a4e99479599d6c3251dc29e75~mv2.png" alt="Cabeza de Vaca's Journey" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.2B</span></div>
+          <div class="title">Cabeza de Vaca's Journey</div>
+          <div class="desc">A survival adventure retracing the explorer's eight-year walk across Texas to reach Mexico alive.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=found-a-mission&access=student&title=Found+a+Mission&type=game&teks=7.2C">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_780fb04321e247a780e4288053a0d3e9~mv2.png" alt="Found a Mission" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.2C</span></div>
+          <div class="title">Found a Mission</div>
+          <div class="desc">A building game: pick a spot and balance converting, farming, and defending your mission to keep it standing.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=claim-the-land&access=student&title=Claim+the+Land&type=game&teks=7.2B">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_5f8abc0b0b7f4ae5a3ef6b9489ca5fca~mv2.png" alt="Claim the Land" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.2B</span></div>
+          <div class="title">Claim the Land</div>
+          <div class="desc">A France-versus-Spain strategy game placing forts and missions on the map to lock in a claim to Texas.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a></div></div><div class="unit"><div class="unit-head"><h2>Unit 3: Mexican National & Texas Revolution</h2><span>1821-1836</span></div><div class="subhead">Interactive Apps</div><div class="grid"><a class="cardlink" href="https://apps.mysteryrevealededresources.com/road-to-revolution-timeline/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_9304637445f74110add80e9a420fbb73~mv2.png" alt="Road to Revolution Timeline" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.3A</span></div>
+          <div class="title">Road to Revolution Timeline</div>
+          <div class="desc">Click each step that pushed Texas toward war and see how one event led to the next.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/battle-map-of-the-revolution/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_d28c65003cea4368bc55c786f5725550~mv2.png" alt="Battle Map of the Revolution" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.3C</span></div>
+          <div class="title">Battle Map of the Revolution</div>
+          <div class="desc">A clickable map of Gonzales, the Alamo, Goliad, and San Jacinto with dates, commanders, and outcomes.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/voices-of-the-revolution/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_69e132f5f07b4b70b33e6c45bb75271c~mv2.png" alt="Voices of the Revolution" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.3B</span></div>
+          <div class="title">Voices of the Revolution</div>
+          <div class="desc">Click portraits of Austin, Travis, Houston, Seguin, and Santa Anna, plus Travis's famous letter.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a></div><div class="subhead">Games &mdash; Student Access</div><div class="grid"><a class="cardlink" href="/coming-soon/?item=empresario&access=student&title=Empresario&type=game&teks=7.2E+7.3A">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_f0d1b9698cf141f6b847c9a0efb68d35~mv2.png" alt="Empresario" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.2E, 7.3A</span></div>
+          <div class="title">Empresario</div>
+          <div class="desc">A management game playing Stephen F. Austin bringing families to Texas while tensions grow.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=hold-the-line-the-alamo&access=student&title=Hold+the+Line:+The+Alamo&type=game&teks=7.3C">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_fa9725f3e38941fdbf9b7bff57361034~mv2.png" alt="Hold the Line: The Alamo" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.3C</span></div>
+          <div class="title">Hold the Line: The Alamo</div>
+          <div class="desc">A choice game over the 13-day siege as Travis, learning why the delay helped Houston's army get ready.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=remember-the-alamo&access=student&title=Remember+the+Alamo!&type=game&teks=7.3C">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_6737f01a986343edb1808c5f53c43614~mv2.png" alt="Remember the Alamo!" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.3C</span></div>
+          <div class="title">Remember the Alamo!</div>
+          <div class="desc">A knowledge-battle game answering history questions to power Houston's army toward victory at San Jacinto.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a></div></div><div class="unit"><div class="unit-head"><h2>Unit 4: Republic and Early Statehood</h2><span>1836-1861</span></div><div class="subhead">Interactive Apps</div><div class="grid"><a class="cardlink" href="https://apps.mysteryrevealededresources.com/houston-vs-lamar/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_d23e55229ac84e84985a1b31d8b61914~mv2.png" alt="Houston vs. Lamar" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.4A</span></div>
+          <div class="title">Houston vs. Lamar</div>
+          <div class="desc">A compare widget on how Presidents Houston and Lamar handled debt, native policy, education, and annexation.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/should-texas-join-the-us/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_41585f70c5e54d3fa12e8de0665227e8~mv2.png" alt="Should Texas Join the U.S.?" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.4B</span></div>
+          <div class="title">Should Texas Join the U.S.?</div>
+          <div class="desc">An interactive pro-and-con board of the annexation debate — debt, war fears, and slavery.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/border-dispute-map/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_b0620755052d4b0cb36422c5a5756355~mv2.png" alt="Border Dispute Map" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.4C</span></div>
+          <div class="title">Border Dispute Map</div>
+          <div class="desc">A map of the Nueces and Rio Grande showing why the two countries disagreed and the treaty's land.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a></div><div class="subhead">Games &mdash; Student Access</div><div class="grid"><a class="cardlink" href="/coming-soon/?item=president-of-the-republic&access=student&title=President+of+the+Republic&type=game&teks=7.4A">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_faf3e2e306384a6da6f5320cb6b79125~mv2.png" alt="President of the Republic" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.4A</span></div>
+          <div class="title">President of the Republic</div>
+          <div class="desc">A decision game leading the young Republic through money, native relations, and the threat from Mexico.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=nation-builder-debt-crisis&access=student&title=Nation+Builder:+Debt+Crisis&type=game&teks=7.4B">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_307c6f3b0b3a48a3bc3ebb7895604eb7~mv2.png" alt="Nation Builder: Debt Crisis" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.4B</span></div>
+          <div class="title">Nation Builder: Debt Crisis</div>
+          <div class="desc">An economy game managing the Republic's huge debt term by term toward annexation.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=statehood-showdown&access=student&title=Statehood+Showdown&type=game&teks=7.4C">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_90d2724cee1a4d299b101b63a339fe82~mv2.png" alt="Statehood Showdown" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.4C</span></div>
+          <div class="title">Statehood Showdown</div>
+          <div class="desc">A board-style quiz racing through annexation, the U.S.-Mexican War, and the Compromise of 1850.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a></div></div><div class="unit"><div class="unit-head"><h2>Unit 5: Civil War and Reconstruction</h2><span>1861-1876</span></div><div class="subhead">Interactive Apps</div><div class="grid"><a class="cardlink" href="https://apps.mysteryrevealededresources.com/back-door-of-the-confederacy/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_57534986ddcf47e09bd0dcd457a25cd1~mv2.png" alt="The Back Door of the Confederacy" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.5A, 7.5B</span></div>
+          <div class="title">The Back Door of the Confederacy</div>
+          <div class="desc">An interactive map of the Union blockade and the cotton route through Mexico.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/three-texas-battles/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_077a7d66100247afab4bc5dba5398de0~mv2.png" alt="Three Texas Battles" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.5B</span></div>
+          <div class="title">Three Texas Battles</div>
+          <div class="desc">A clickable map of Galveston, Sabine Pass, and Palmito Ranch — including the battle after the war ended.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/after-the-war/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_7ffe250b599240a2912fd584d4f3d971~mv2.png" alt="After the War" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.5C</span></div>
+          <div class="title">After the War</div>
+          <div class="desc">Cards for Juneteenth, the Freedmen's Bureau, Black Codes, and the KKK explaining Reconstruction's changes.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a></div><div class="subhead">Games &mdash; Student Access</div><div class="grid"><a class="cardlink" href="/coming-soon/?item=run-the-blockade&access=student&title=Run+the+Blockade&type=game&teks=7.5A+7.5B">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_a9d3338cd53f4911879fb6fc00ded141~mv2.png" alt="Run the Blockade" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.5A, 7.5B</span></div>
+          <div class="title">Run the Blockade</div>
+          <div class="desc">A strategy game shipping Texas cotton past the Union blockade and through Mexico for supplies.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=sabine-pass-against-the-odds&access=student&title=Sabine+Pass:+Against+the+Odds&type=game&teks=7.5B">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_fc80406f120d481d84367c9b7c269517~mv2.png" alt="Sabine Pass: Against the Odds" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.5B</span></div>
+          <div class="title">Sabine Pass: Against the Odds</div>
+          <div class="desc">A tactics game as Dick Dowling's small group defending Fort Griffin against a much larger force.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=reconstruction-reporter&access=student&title=Reconstruction+Reporter&type=game&teks=7.5C+7.20D">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_1de8ccfd9cb14886bf698359f300ca1a~mv2.png" alt="Reconstruction Reporter" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.5C, 7.20D</span></div>
+          <div class="title">Reconstruction Reporter</div>
+          <div class="desc">A role game as an 1865-1876 reporter covering Juneteenth and sorting real facts from biased claims.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a></div></div><div class="unit"><div class="unit-head"><h2>Unit 6: Cotton, Cattle, Railroads & The Age of Oil</h2><span>1876-1920</span></div><div class="subhead">Interactive Apps</div><div class="grid"><a class="cardlink" href="https://apps.mysteryrevealededresources.com/cattle-trail/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_11670f0a8b024cb4971edc6e98fde932~mv2.png" alt="The Cattle Trail" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.6B, 7.6C</span></div>
+          <div class="title">The Cattle Trail</div>
+          <div class="desc">Click north along the cattle trail from Texas to the Kansas railheads and learn cowboy life.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/spindletop-anatomy-of-a-gusher/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_7dcf824f7e244da5905893b419236958~mv2.png" alt="Spindletop: Anatomy of a Gusher" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.7A</span></div>
+          <div class="title">Spindletop: Anatomy of a Gusher</div>
+          <div class="desc">Click parts of the 1901 Spindletop scene — the derrick, Patillo Higgins, and the boomtown.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/boom-and-bust-meter/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_e704a4f6cd734314b5ca73c77b146573~mv2.png" alt="Boom-and-Bust Meter" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.7B</span></div>
+          <div class="title">Boom-and-Bust Meter</div>
+          <div class="desc">Slide through the years and watch cattle, cotton, and oil rise and fall to see the boom-and-bust cycle.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a></div><div class="subhead">Games &mdash; Student Access</div><div class="grid"><a class="cardlink" href="/coming-soon/?item=trail-boss&access=student&title=Trail+Boss&type=game&teks=7.6B">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_c5a6a2d799e34a71851bcc7b84c883c4~mv2.png" alt="Trail Boss" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.6B</span></div>
+          <div class="title">Trail Boss</div>
+          <div class="desc">A cattle-drive game moving your herd north past rivers and rustlers to the railhead.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=wildcatter&access=student&title=Wildcatter&type=game&teks=7.7A+7.7B">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_6f0936640500431e969eed555cdba440~mv2.png" alt="Wildcatter" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.7A, 7.7B</span></div>
+          <div class="title">Wildcatter</div>
+          <div class="desc">An oil-boom game drilling wells, striking oil or going bust, and feeling the boom-and-bust cycle.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=open-range-or-barbed-wire&access=student&title=Open+Range+or+Barbed+Wire?&type=game&teks=7.6B+7.6D">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_80e9c22fd7f34e2cac4829e2e4d41fcc~mv2.png" alt="Open Range or Barbed Wire?" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.6B, 7.6D</span></div>
+          <div class="title">Open Range or Barbed Wire?</div>
+          <div class="desc">A choice game running a ranch as barbed wire spreads and the open range disappears.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a></div></div><div class="unit"><div class="unit-head"><h2>Unit 7: 20th and 21st Century Texas</h2><span>1920-Present</span></div><div class="subhead">Interactive Apps</div><div class="grid"><a class="cardlink" href="https://apps.mysteryrevealededresources.com/texas-through-the-decades/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_254981598053425c8143e0fce21b36eb~mv2.png" alt="Texas Through the Decades" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.7E</span></div>
+          <div class="title">Texas Through the Decades</div>
+          <div class="desc">A clickable timeline from the 1920s to today — suffrage, the Dust Bowl, WWII, civil rights, NASA, tech.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/voices-for-change/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_c6bae5639c984647a938a164d06d4a3f~mv2.png" alt="Voices for Change" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.7C, 7.7D</span></div>
+          <div class="title">Voices for Change</div>
+          <div class="desc">A leaders gallery of Barbara Jordan, James Farmer Jr., Hector P. Garcia, and Minnie Fisher Cunningham.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/dust-bowl-texas/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_2fb3f84488494d268a1b2b04a4314563~mv2.png" alt="Dust Bowl Texas" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.7E, 7.9B</span></div>
+          <div class="title">Dust Bowl Texas</div>
+          <div class="desc">A before-and-after widget of the Panhandle drought, dust storms, migration, and New Deal help.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a></div><div class="subhead">Games &mdash; Student Access</div><div class="grid"><a class="cardlink" href="/coming-soon/?item=surviving-the-dust-bowl&access=student&title=Surviving+the+Dust+Bowl&type=game&teks=7.7E">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_796db90c515d4c9e8bffebffcb469e51~mv2.png" alt="Surviving the Dust Bowl" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.7E</span></div>
+          <div class="title">Surviving the Dust Bowl</div>
+          <div class="desc">A survival choice game as a 1930s Panhandle family deciding to stay or move west.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=the-home-front&access=student&title=The+Home+Front&type=game&teks=7.7E">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_0bf18b3e5fd54153bf1720f72bc439a0~mv2.png" alt="The Home Front" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.7E</span></div>
+          <div class="title">The Home Front</div>
+          <div class="desc">A WWII strategy game running Texas training bases and oil and aviation industries for the war effort.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=mission-control-texas-in-space&access=student&title=Mission+Control:+Texas+in+Space&type=game&teks=7.12C">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_8445c3d4c2b4498ba930146d898f1392~mv2.png" alt="Mission Control: Texas in Space" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.12C</span></div>
+          <div class="title">Mission Control: Texas in Space</div>
+          <div class="desc">A knowledge game at NASA's Johnson Space Center solving problems to launch a mission.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a></div></div><div class="unit"><div class="unit-head"><h2>Unit 8: Social Studies Skills</h2><span>Cross-Cutting - Use All Year</span></div><div class="subhead">Interactive Apps</div><div class="grid"><a class="cardlink" href="https://apps.mysteryrevealededresources.com/primary-or-secondary/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_7b99779d6b2441ee9a90e86627f1eb51~mv2.png" alt="Primary or Secondary?" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.20A</span></div>
+          <div class="title">Primary or Secondary?</div>
+          <div class="desc">A sorting widget dragging Texas sources — diary, textbook, photo, news story — into the right bucket.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/read-the-map-four-regions/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_0ce4a0c057c64a3eb23c82b9f9eceb7b~mv2.png" alt="Read the Map: Four Regions" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.8A, 7.21A</span></div>
+          <div class="title">Read the Map: Four Regions</div>
+          <div class="desc">Click the Mountains and Basins, Great Plains, North Central Plains, and Coastal Plains to compare them.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a><a class="cardlink" href="https://apps.mysteryrevealededresources.com/spot-the-bias/">
+      <div class="card t-app">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_3ce4fb13f8a1475fa9b54a72536ef2de~mv2.png" alt="Spot the Bias" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">INTERACTIVE APP</span><span class="teks">TEKS 7.20D, 7.20F</span></div>
+          <div class="title">Spot the Bias</div>
+          <div class="desc">A source-analysis clicker highlighting loaded words and points of view in short Texas-history sources.</div>
+        </div>
+        <div class="band">INTERACTIVE APP &nbsp;•&nbsp; OPEN ACCESS</div>
+      </div>
+    </a></div><div class="subhead">Games &mdash; Student Access</div><div class="grid"><a class="cardlink" href="/coming-soon/?item=timeline-detective&access=student&title=Timeline+Detective&type=game&teks=7.1B+7.20B">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_851605a0ca34427483c5b7d55ba3a165~mv2.png" alt="Timeline Detective" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.1B, 7.20B</span></div>
+          <div class="title">Timeline Detective</div>
+          <div class="desc">A drag-and-drop game putting Texas's key dates in order — 1519, 1718, 1821, 1836, 1845, 1861, 1876, 1901.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=source-sleuth&access=student&title=Source+Sleuth&type=game&teks=7.20A+7.20F">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_dbecf3d40896459f94d6cb6aaa9be05d~mv2.png" alt="Source Sleuth" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.20A, 7.20F</span></div>
+          <div class="title">Source Sleuth</div>
+          <div class="desc">A mystery game using clues from primary sources to crack a Texas-history case.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a><a class="cardlink" href="/coming-soon/?item=region-rush&access=student&title=Region+Rush&type=game&teks=7.8B+7.21A">
+      <div class="card t-student">
+        <img class="illo" src="https://static.wixstatic.com/media/8e419d_1206f82788444120b2a55254f25ecbe8~mv2.png" alt="Region Rush" loading="lazy">
+        <div class="accent"></div>
+        <div class="panel">
+          <div class="toprow"><span class="badge">GAME</span><span class="teks">TEKS 7.8B, 7.21A</span></div>
+          <div class="title">Region Rush</div>
+          <div class="desc">A fast map game dropping cities, rivers, and landmarks into the correct Texas region before time runs out.</div>
+        </div>
+        <div class="band">GAME &nbsp;•&nbsp; STUDENT ACCESS &nbsp;•&nbsp; MEMBERSHIP REQUIRED</div>
+      </div>
+    </a></div></div></div>
 
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 1</span><h2>Natural Texas and Its People</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/texas-interactive-map/">Texas Interactive Map: Regions &amp; Native People</a></li>
-        <li><a href="/four-corners-tribe-map/">Four Corners Tribe Map</a></li>
-        <li><a href="/build-a-home-explorer/">Build-a-Home Explorer</a></li>
-        <li><a href="/whats-for-dinner/">What&rsquo;s for Dinner?</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 2</span><h2>Age of Contact and Spanish Colonial</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/explorers-routes-map/">Explorers&rsquo; Routes Map</a></li>
-        <li><a href="/anatomy-of-a-mission/">Anatomy of a Mission</a></li>
-        <li><a href="/meet-the-missionaries/">Meet the Missionaries</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 3</span><h2>Mexican National and Texas Revolution</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/road-to-revolution-timeline/">Road to Revolution Timeline</a></li>
-        <li><a href="/battle-map-of-the-revolution/">Battle Map of the Revolution</a></li>
-        <li><a href="/voices-of-the-revolution/">Voices of the Revolution</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 4</span><h2>Republic and Early Statehood</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/should-texas-join-the-us/">Should Texas Join the U.S.?</a></li>
-        <li><a href="/houston-vs-lamar/">Houston vs. Lamar</a></li>
-        <li><a href="/border-dispute-map/">Border Dispute Map</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 5</span><h2>Civil War and Reconstruction</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/three-texas-battles/">Three Texas Battles</a></li>
-        <li><a href="/back-door-of-the-confederacy/">Back Door of the Confederacy</a></li>
-        <li><a href="/after-the-war/">After the War</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 6</span><h2>Cotton, Cattle, Railroads, and the Age of Oil</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/cattle-trail/">The Cattle Trail</a></li>
-        <li><a href="/spindletop-anatomy-of-a-gusher/">Spindletop: Anatomy of a Gusher</a></li>
-        <li><a href="/boom-and-bust-meter/">Boom-and-Bust Meter</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 7</span><h2>20th and 21st Century Texas</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/texas-through-the-decades/">Texas Through the Decades</a></li>
-        <li><a href="/dust-bowl-texas/">Dust Bowl Texas</a></li>
-        <li><a href="/voices-for-change/">Voices for Change</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 8</span><h2>Social Studies Skills</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/read-the-map-four-regions/">Read the Map: Four Regions</a></li>
-        <li><a href="/primary-or-secondary/">Primary or Secondary?</a></li>
-        <li><a href="/spot-the-bias/">Spot the Bias</a></li>
-      </ul>
-    </section>
-
-    <nav class="collections">
-      <a href="/">All courses</a> ·
-      <a href="/us-history-part-1/">US History Part 1 · Colonization through 1877</a> ·
-      <a href="/us-history-part-2/">US History Part 2 · 1877 to the Present</a>
-    </nav>
-
-    <footer>Made for 7th Grade Texas History · Mystery Revealed EdResources</footer>
-  </div>
-</body>
-</html>
+<div style="text-align:center;margin:34px auto 0;font-size:14px;font-family:Arial,Helvetica,sans-serif;">
+  <a href="/" style="color:#7a201c;font-weight:700;text-decoration:none">&#8962; All Courses</a> &nbsp;&middot;&nbsp;
+  <a href="/texas-history/" style="color:#7a201c;font-weight:700;text-decoration:none">Texas History</a> &nbsp;&middot;&nbsp;
+  <a href="/us-history-part-1/" style="color:#7a201c;font-weight:700;text-decoration:none">US History Pt 1</a> &nbsp;&middot;&nbsp;
+  <a href="/us-history-part-2/" style="color:#7a201c;font-weight:700;text-decoration:none">US History Pt 2</a>
+</div>
+<div class="foot">Mystery Revealed EdResources &nbsp;—&nbsp; Texas History, Grade 7 &nbsp;—&nbsp; TEKS §113.19</div>
+</body></html>
