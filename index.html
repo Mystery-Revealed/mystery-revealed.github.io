@@ -42,7 +42,10 @@
   }
   ul.apps a:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--sage);}
   ul.apps a:focus-visible{outline:3px solid var(--focus); outline-offset:2px;}
-  footer{text-align:center; margin:30px 0 10px; font-size:13px; color:var(--ink-soft);}
+  nav.collections{margin:28px 0 0; text-align:center; font-size:14px; color:var(--ink-soft);}
+  nav.collections a{color:var(--sage-deep); font-weight:600; text-decoration:none;}
+  nav.collections a:hover{text-decoration:underline;}
+  footer{text-align:center; margin:14px 0 10px; font-size:13px; color:var(--ink-soft);}
   @media (prefers-reduced-motion:reduce){ ul.apps a{transition:none;} }
 </style>
 </head>
@@ -125,6 +128,12 @@
         <li><a href="/spot-the-bias/">Spot the Bias</a></li>
       </ul>
     </section>
+
+    <nav class="collections">
+      More collections:
+      <a href="/us-history-part-1/">US History Part 1 · Colonization through 1877</a> ·
+      <a href="/us-history-part-2/">US History Part 2 · 1877 to the Present</a>
+    </nav>
 
     <footer>Made for 7th Grade Texas History · Mystery Revealed EdResources</footer>
   </div>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>US History Apps · Part 1 · Mystery Revealed EdResources</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%A6%85%3C/text%3E%3C/svg%3E" />
+<style>
+  :root{
+    --parchment:#f4e9d2; --parchment-deep:#e9d8b4; --ink:#3a2a18; --ink-soft:#6a533a;
+    --accent:#b5502e; --accent-deep:#8f3c20; --card:#fffaf0; --line:#cbb68d;
+    --shadow:0 6px 22px rgba(58,42,24,.15); --focus:#1c62d6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); line-height:1.5; font-size:17px;
+    background:radial-gradient(1200px 600px at 50% -10%, #fbf3df 0%, var(--parchment) 55%, var(--parchment-deep) 100%);
+    min-height:100vh;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:28px 16px 16px;}
+  header{text-align:center; margin-bottom:8px;}
+  h1{font-family:Georgia,"Times New Roman",serif; font-size:clamp(28px,5vw,40px); margin:0 0 6px; color:var(--accent-deep);}
+  .lede{margin:0 auto; max-width:560px; color:var(--ink-soft); font-size:clamp(15px,2.4vw,18px);}
+  section.unit{margin-top:26px;}
+  .unit-head{display:flex; align-items:baseline; gap:10px; margin:0 0 10px;}
+  .unit-head .num{
+    font-family:Georgia,serif; font-weight:700; font-size:15px; color:#fff;
+    background:var(--accent); border-radius:8px; padding:2px 10px; white-space:nowrap;
+  }
+  .unit-head h2{
+    font-family:Georgia,serif; font-size:clamp(18px,3vw,22px);
+    margin:0; color:var(--accent-deep); letter-spacing:.2px;
+  }
+  .unit-head .rule{flex:1; border-bottom:1px dashed var(--line); transform:translateY(-4px);}
+  ul.apps{list-style:none; margin:0; padding:0; display:grid; gap:8px;}
+  ul.apps a{
+    display:block; padding:12px 16px; background:var(--card);
+    border:2px solid var(--line); border-radius:12px;
+    color:var(--accent-deep); font-weight:600; text-decoration:none; font-size:16px;
+    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  ul.apps a:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--accent);}
+  ul.apps a:focus-visible{outline:3px solid var(--focus); outline-offset:2px;}
+  .growing{margin:26px 0 0; text-align:center; font-style:italic; color:var(--ink-soft); font-size:14px;}
+  nav.collections{margin:28px 0 0; text-align:center; font-size:14px; color:var(--ink-soft);}
+  nav.collections a{color:var(--accent-deep); font-weight:600; text-decoration:none;}
+  nav.collections a:hover{text-decoration:underline;}
+  footer{text-align:center; margin:14px 0 10px; font-size:13px; color:var(--ink-soft);}
+  @media (prefers-reduced-motion:reduce){ ul.apps a{transition:none;} }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>US History Apps · Part 1</h1>
+      <p class="lede">Exploration and Colonization through 1877 — interactive apps organized by unit.</p>
+    </header>
+
+    <section class="unit">
+      <div class="unit-head"><span class="num">Unit 1</span><h2>Colonization</h2><span class="rule"></span></div>
+      <ul class="apps">
+        <li><a href="/us-colonial-curiosities/">Cabinet of Colonial Curiosities</a></li>
+        <li><a href="/us-triangular-trade/">Triangular Trade</a></li>
+      </ul>
+    </section>
+
+    <section class="unit">
+      <div class="unit-head"><span class="num">Unit 2</span><h2>The Revolutionary War</h2><span class="rule"></span></div>
+      <ul class="apps">
+        <li><a href="/us-burning-fuse/">The Burning Fuse: Road to Revolution</a></li>
+        <li><a href="/us-declaration-decoder/">Declaration Decoder</a></li>
+        <li><a href="/us-battle-command-map/">Battle Command Map</a></li>
+        <li><a href="/us-revolution-portrait-gallery/">Revolution Portrait Gallery</a></li>
+      </ul>
+    </section>
+
+    <p class="growing">More apps are on the way — new ones appear here as they go live.</p>
+
+    <nav class="collections">
+      More collections:
+      <a href="/us-history-part-2/">US History Part 2 · 1877 to the Present</a> ·
+      <a href="/">Texas History</a>
+    </nav>
+
+    <footer>Made for 8th Grade US History · Mystery Revealed EdResources</footer>
+  </div>
+</body>
+</html>
