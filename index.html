@@ -11,6 +11,7 @@
     --sage:#5c6e4a; --sage-deep:#41512f;
     --clay:#b5502e; --clay-deep:#8f3c20;
     --blue:#3f5d7d; --blue-deep:#2c455f;
+    --gold:#c88a2e; --gold-deep:#8a5d1a;
     --card:#fffaf0; --line:#cbb68d;
     --shadow:0 6px 22px rgba(58,42,24,.15); --focus:#1c62d6;
   }
@@ -21,39 +22,51 @@
     background:radial-gradient(1200px 600px at 50% -10%, #fbf3df 0%, var(--parchment) 55%, var(--parchment-deep) 100%);
     min-height:100vh;
   }
-  .wrap{max-width:640px; margin:0 auto; padding:40px 16px 16px;}
-  header{text-align:center; margin-bottom:26px;}
+  .wrap{max-width:1040px; margin:0 auto; padding:38px 16px 16px;}
+  header{text-align:center; margin-bottom:28px;}
   h1{font-family:Georgia,"Times New Roman",serif; font-size:clamp(30px,6vw,44px); margin:0 0 6px; color:var(--ink);}
-  .lede{margin:0 auto; max-width:480px; color:var(--ink-soft); font-size:clamp(15px,2.6vw,18px);}
-  .courses{display:grid; gap:16px; margin-top:8px;}
+  .lede{margin:0 auto; max-width:520px; color:var(--ink-soft); font-size:clamp(15px,2.6vw,18px);}
+  .columns{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start;}
+  @media (max-width:760px){ .columns{grid-template-columns:1fr;} }
+  .col{
+    background:rgba(255,250,240,.55); border:2px solid var(--line); border-radius:20px;
+    padding:18px 16px 16px;
+  }
+  .col-head{text-align:center; margin-bottom:14px;}
+  .col-head h2{
+    font-family:Georgia,serif; margin:0 0 2px; font-size:clamp(19px,3vw,23px); color:var(--ink);
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .col-head p{margin:0; font-size:13.5px; color:var(--ink-soft);}
+  .courses{display:grid; gap:14px;}
   a.course{
-    display:flex; align-items:center; gap:18px;
-    padding:22px 24px;
+    display:flex; align-items:center; gap:15px;
+    padding:16px 18px;
     background:var(--card);
-    border:3px solid var(--line); border-radius:18px;
+    border:3px solid var(--line); border-radius:16px;
     text-decoration:none; color:var(--ink);
     transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
   }
   a.course:hover{transform:translateY(-3px); box-shadow:var(--shadow);}
   a.course:focus-visible{outline:3px solid var(--focus); outline-offset:3px;}
-  a.course .ico{font-size:44px; line-height:1; flex:0 0 auto;}
+  a.course .ico{font-size:34px; line-height:1; flex:0 0 auto;}
   a.course .txt{min-width:0;}
-  a.course h2{
-    font-family:Georgia,serif; margin:0 0 2px;
-    font-size:clamp(20px,3.6vw,26px); letter-spacing:.2px;
+  a.course h3{
+    font-family:Georgia,serif; margin:0 0 1px;
+    font-size:clamp(17px,2.6vw,20px); letter-spacing:.2px;
   }
-  a.course p{margin:0; font-size:clamp(14px,2.4vw,16px); color:var(--ink-soft);}
+  a.course p{margin:0; font-size:clamp(13px,2.2vw,14.5px); color:var(--ink-soft);}
   a.course.texas:hover{border-color:var(--sage);}
-  a.course.texas h2{color:var(--sage-deep);}
+  a.course.texas h3{color:var(--sage-deep);}
   a.course.us1:hover{border-color:var(--clay);}
-  a.course.us1 h2{color:var(--clay-deep);}
+  a.course.us1 h3{color:var(--clay-deep);}
   a.course.us2:hover{border-color:var(--blue);}
-  a.course.us2 h2{color:var(--blue-deep);}
-  footer{text-align:center; margin:34px 0 10px; font-size:13px; color:var(--ink-soft);}
-  @media (max-width:480px){
-    a.course{padding:18px 16px; gap:14px;}
-    a.course .ico{font-size:36px;}
+  a.course.us2 h3{color:var(--blue-deep);}
+  .teacher-note{
+    margin:12px 4px 0; text-align:center; font-size:12.5px; color:var(--gold-deep);
+    font-family:Arial,Helvetica,sans-serif; font-weight:700;
   }
+  footer{text-align:center; margin:32px 0 10px; font-size:13px; color:var(--ink-soft);}
   @media (prefers-reduced-motion:reduce){ a.course{transition:none;} }
 </style>
 </head>
@@ -61,33 +74,70 @@
   <div class="wrap">
     <header>
       <h1>History Apps</h1>
-      <p class="lede">Interactive maps, games, and explorers from Mystery Revealed EdResources. Pick your course.</p>
+      <p class="lede">Interactive maps, games, and explorers from Mystery Revealed EdResources.</p>
     </header>
 
-    <div class="courses">
-      <a class="course texas" href="/texas-history/">
-        <span class="ico" aria-hidden="true">🌟</span>
-        <span class="txt">
-          <h2>Texas History</h2>
-          <p>7th Grade · Units 1–8, from Natural Texas to today</p>
-        </span>
-      </a>
+    <div class="columns">
+      <section class="col" aria-labelledby="student-head">
+        <div class="col-head">
+          <h2 id="student-head">🎒 Student Access</h2>
+          <p>Apps &amp; games, organized by unit — apps are always open</p>
+        </div>
+        <div class="courses">
+          <a class="course texas" href="/texas-history/">
+            <span class="ico" aria-hidden="true">🌟</span>
+            <span class="txt">
+              <h3>Texas History</h3>
+              <p>7th Grade · Units 1–8 · apps &amp; games</p>
+            </span>
+          </a>
+          <a class="course us1" href="/us-history-part-1/">
+            <span class="ico" aria-hidden="true">🦅</span>
+            <span class="txt">
+              <h3>US History · Part 1</h3>
+              <p>Exploration &amp; Colonization through 1877</p>
+            </span>
+          </a>
+          <a class="course us2" href="/us-history-part-2/">
+            <span class="ico" aria-hidden="true">🗽</span>
+            <span class="txt">
+              <h3>US History · Part 2</h3>
+              <p>1877 to the Present</p>
+            </span>
+          </a>
+        </div>
+      </section>
 
-      <a class="course us1" href="/us-history-part-1/">
-        <span class="ico" aria-hidden="true">🦅</span>
-        <span class="txt">
-          <h2>US History · Part 1</h2>
-          <p>Exploration and Colonization through 1877</p>
-        </span>
-      </a>
-
-      <a class="course us2" href="/us-history-part-2/">
-        <span class="ico" aria-hidden="true">🗽</span>
-        <span class="txt">
-          <h2>US History · Part 2</h2>
-          <p>1877 to the Present</p>
-        </span>
-      </a>
+      <section class="col" aria-labelledby="teacher-head">
+        <div class="col-head">
+          <h2 id="teacher-head">🔑 Teacher Access</h2>
+          <p>Game Command Centers — class codes, live results, PDF reports</p>
+        </div>
+        <div class="courses">
+          <a class="course texas" href="/texas-history-teacher/">
+            <span class="ico" aria-hidden="true">🌟</span>
+            <span class="txt">
+              <h3>Texas History Games</h3>
+              <p>Teacher Command Centers · Units 1–8</p>
+            </span>
+          </a>
+          <a class="course us1" href="/us-history-part-1-teacher/">
+            <span class="ico" aria-hidden="true">🦅</span>
+            <span class="txt">
+              <h3>US History Pt 1 Games</h3>
+              <p>Teacher Command Centers · Colonization–1877</p>
+            </span>
+          </a>
+          <a class="course us2" href="/us-history-part-2-teacher/">
+            <span class="ico" aria-hidden="true">🗽</span>
+            <span class="txt">
+              <h3>US History Pt 2 Games</h3>
+              <p>Teacher Command Centers · 1877–Present</p>
+            </span>
+          </a>
+        </div>
+        <p class="teacher-note">Membership required · teacher tools only</p>
+      </section>
     </div>
 
     <footer>Mystery Revealed EdResources</footer>

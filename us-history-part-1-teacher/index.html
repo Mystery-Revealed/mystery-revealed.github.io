@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.S. History: Colonization to 1877 — Teacher Game Access</title>
+<style>
+:root{
+  --navy:#1B2A4A; --steel:#2E74B5; --crimson:#B23A48; --gold:#C9A227;
+  --green:#2F7D4F; --paper:#F5F7FA; --ink:#22283A; --slate:#5B6770;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Segoe UI',Verdana,Arial,sans-serif;}
+header.site{background:var(--navy);color:#fff;padding:28px 20px;text-align:center;}
+header.site h1{margin:0 0 6px;font-size:1.7rem;letter-spacing:.02em;}
+header.site p{margin:0;color:#c9d3e6;font-size:.95rem;}
+.searchbar{max-width:520px;margin:18px auto 0;display:flex;gap:8px;}
+.searchbar input{flex:1;padding:10px 14px;border-radius:8px;border:none;font-size:1rem;}
+nav.units{position:sticky;top:0;z-index:20;background:#22304f;padding:10px 12px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.15);}
+nav.units a{color:#dbe3f2;text-decoration:none;font-size:.8rem;padding:6px 10px;border-radius:6px;border:1px solid #3a4b73;}
+nav.units a:hover{background:var(--steel);color:#fff;}
+main{max-width:1200px;margin:0 auto;padding:24px 16px 60px;}
+section.unit{margin-bottom:44px;}
+section.unit h2{color:var(--navy);border-bottom:3px solid var(--gold);padding-bottom:8px;font-size:1.35rem;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;margin-top:16px;}
+a.card{display:block;text-decoration:none;color:inherit;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(27,42,74,.12);transition:transform .15s, box-shadow .15s;border:1px solid #dde3ee;}
+a.card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(27,42,74,.22);}
+.art{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#dde3ee;}
+.panel{background:var(--navy);padding:12px 14px 14px;}
+.kind{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.06em;padding:3px 8px;border-radius:20px;margin-bottom:8px;}
+.kind.app{background:var(--steel);color:#fff;}
+.kind.game{background:var(--crimson);color:#fff;}
+.title{color:#fff;font-size:.98rem;font-weight:700;line-height:1.25;margin-bottom:8px;min-height:2.4em;}
+.teks{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;}
+.teks span{font-size:.62rem;color:var(--navy);background:#e8c766;background:linear-gradient(180deg,#e9d48a,var(--gold));padding:2px 6px;border-radius:4px;font-weight:700;}
+.badges{display:flex;flex-wrap:wrap;gap:6px;}
+.badge{font-size:.62rem;font-weight:700;padding:3px 7px;border-radius:5px;letter-spacing:.02em;}
+.badge.member{background:#3a2d10;color:#f0d385;border:1px solid var(--gold);}
+.badge.student{background:#173a5e;color:#bcdcff;border:1px solid var(--steel);}
+.badge.teacher{background:#4a1620;color:#ffc3cd;border:1px solid var(--crimson);}
+footer.site{background:var(--navy);color:#c9d3e6;text-align:center;padding:22px;font-size:.85rem;}
+.hidden{display:none !important;}
+.empty-msg{text-align:center;color:var(--slate);padding:40px;display:none;}
+</style>
+</head>
+<body>
+<header class="site">
+  <h1>U.S. History: Colonization to 1877 — Teacher Game Access</h1>
+  <p>Members-only: teacher access thumbnails for every U.S. History game, with the Teacher Command Center.</p>
+  <div class="searchbar">
+    <input type="text" id="usSearch" placeholder="Search by title, unit topic, or TEKS code..." oninput="usFilterCards(this.value)">
+  </div>
+</header>
+<nav class="units"><a href="#u1">Unit 1</a><a href="#u2">Unit 2</a><a href="#u3">Unit 3</a><a href="#u4">Unit 4</a><a href="#u5">Unit 5</a><a href="#u6">Unit 6</a><a href="#u7">Unit 7</a><a href="#u8">Unit 8</a><a href="#u9">Unit 9</a><a href="#bonus">Bonus</a><a href="/" style="background:#3a4b73">&#8962; All Courses</a></nav>
+<main>
+<section class="unit" id="u1">
+  <h2>Unit 1: Colonization</h2>
+  <div class="grid"><a class="card" href="https://us-build-a-colony.onrender.com/#teacher" data-search="build-a-colony simulation / strategy game 8.2b 8.10b 8.11a 8.12a 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_5ff8b18dde124b69b9d42c3428b97e5e~mv2.png" alt="Build-a-Colony illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Build-a-Colony</div>
+    <div class="teks"><span>8.2B</span><span>8.10B</span><span>8.11A</span><span>8.12A</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="https://us-jamestown-1607.onrender.com/#teacher" data-search="jamestown 1607: survive the starving time choice-driven survival game 8.1b 8.2a 8.2b 8.12b 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_30336051d3734619be4b1d8d8f3ab411~mv2.png" alt="Jamestown 1607: Survive the Starving Time illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Jamestown 1607: Survive the Starving Time</div>
+    <div class="teks"><span>8.1B</span><span>8.2A</span><span>8.2B</span><span>8.12B</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-colony-sort-region-rush&type=game&access=teacher" data-search="colony sort: region rush fast-paced sorting knowledge game 8.2b 8.12a 8.29b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_d58e0583cac54df58b14aacd68f69f5c~mv2.png" alt="Colony Sort: Region Rush illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Colony Sort: Region Rush</div>
+    <div class="teks"><span>8.2B</span><span>8.12A</span><span>8.29B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="https://us-mutiny-mayflower.onrender.com/#teacher" data-search="mutiny on the mayflower decision game (short) 8.3b 8.1b 8.15a 8.19a">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_a4b7e99315e843258e6617e4163c5b0b~mv2.png" alt="Mutiny on the Mayflower illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Mutiny on the Mayflower</div>
+    <div class="teks"><span>8.3B</span><span>8.1B</span><span>8.15A</span><span>8.19A</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a></div>
+</section><section class="unit" id="u2">
+  <h2>Unit 2: The Revolutionary War</h2>
+  <div class="grid"><a class="card" href="https://us-patriot-loyalist-neutral.onrender.com/#teacher" data-search="patriot, loyalist, or neutral? branching story game 8.4a 8.4b 8.20b 8.21a 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_e8f0c5b459954643b1b6d7f7b1d863df~mv2.png" alt="Patriot, Loyalist, or Neutral? illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Patriot, Loyalist, or Neutral?</div>
+    <div class="teks"><span>8.4A</span><span>8.4B</span><span>8.20B</span><span>8.21A</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-washington-s-war-keep-the-army-alive&type=game&access=teacher" data-search="washington&#x27;s war: keep the army alive strategy / resource game 8.4b 8.4c 8.22a 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_ce6ced00187a4a1ea72e9a28aef3b7ac~mv2.png" alt="Washington&#x27;s War: Keep the Army Alive illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Washington&#x27;s War: Keep the Army Alive</div>
+    <div class="teks"><span>8.4B</span><span>8.4C</span><span>8.22A</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-tax-collector-vs-tea-party&type=game&access=teacher" data-search="tax collector vs. tea party cause-and-effect knowledge game 8.4a 8.20b 8.29b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_902a876e16b04521b3025f1fbf9b6ee9~mv2.png" alt="Tax Collector vs. Tea Party illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Tax Collector vs. Tea Party</div>
+    <div class="teks"><span>8.4A</span><span>8.20B</span><span>8.29B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-spy-ring-crack-the-code&type=game&access=teacher" data-search="spy ring: crack the code puzzle / knowledge game 8.4b 8.4c 8.29a 8.29b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_c6faea196c0549ad9d8f6c47bf938aa4~mv2.png" alt="Spy Ring: Crack the Code illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Spy Ring: Crack the Code</div>
+    <div class="teks"><span>8.4B</span><span>8.4C</span><span>8.29A</span><span>8.29B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a></div>
+</section><section class="unit" id="u3">
+  <h2>Unit 3: The Beginning of the Nation — Articles of Confederation &amp; the Constitution</h2>
+  <div class="grid"><a class="card" href="/coming-soon/?item=us-philadelphia-1787-you-are-a-delegate&type=game&access=teacher" data-search="philadelphia 1787: you are a delegate negotiation simulation 8.4d 8.15d 8.21c 8.30d 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_bc68d7402b8e473f9ce0a4990072df9d~mv2.png" alt="Philadelphia 1787: You Are a Delegate illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Philadelphia 1787: You Are a Delegate</div>
+    <div class="teks"><span>8.4D</span><span>8.15D</span><span>8.21C</span><span>8.30D</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-ratify-it-federalist-vs-anti-federalist-showdown&type=game&access=teacher" data-search="ratify it! federalist vs. anti-federalist showdown argument card-battle game 8.17a 8.15c 8.21b 8.20a">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_90c1ef35a7674473a4048f4817ac8da9~mv2.png" alt="Ratify It! Federalist vs. Anti-Federalist Showdown illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Ratify It! Federalist vs. Anti-Federalist Showdown</div>
+    <div class="teks"><span>8.17A</span><span>8.15C</span><span>8.21B</span><span>8.20A</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-two-rebellions-a-tale-of-two-governments&type=game&access=teacher" data-search="two rebellions: a tale of two governments compare-and-decide game 8.15b 8.5a 8.17b 8.1a">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_2bc892aaeb334197b3efd51ff3d2657e~mv2.png" alt="Two Rebellions: A Tale of Two Governments illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Two Rebellions: A Tale of Two Governments</div>
+    <div class="teks"><span>8.15B</span><span>8.5A</span><span>8.17B</span><span>8.1A</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-rights-defender&type=game&access=teacher" data-search="rights defender scenario-matching arcade game 8.19a 8.19b 8.15c">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_7f6ed9d18bb24248bbd8fd9f2e2fb39a~mv2.png" alt="Rights Defender illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Rights Defender</div>
+    <div class="teks"><span>8.19A</span><span>8.19B</span><span>8.15C</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a></div>
+</section><section class="unit" id="u4">
+  <h2>Unit 4: The Early Republic &amp; the Age of Jackson (Washington through Jackson)</h2>
+  <div class="grid"><a class="card" href="/coming-soon/?item=us-you-be-the-president&type=game&access=teacher" data-search="you be the president decision game across seven presidencies 8.5a–h 8.17b 8.22a 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_624f0da4c2294548ac853c60fb8e1a52~mv2.png" alt="You Be the President illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">You Be the President</div>
+    <div class="teks"><span>8.5A–H</span><span>8.17B</span><span>8.22A</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-corps-of-discovery-mission-west&type=game&access=teacher" data-search="corps of discovery: mission west expedition survival game 8.5c 8.6b 8.10a 8.11a 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_307f2f67399045dab8c1e9cbc11c9afc~mv2.png" alt="Corps of Discovery: Mission West illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Corps of Discovery: Mission West</div>
+    <div class="teks"><span>8.5C</span><span>8.6B</span><span>8.10A</span><span>8.11A</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-cabinet-battle-hamilton-vs-jefferson&type=game&access=teacher" data-search="cabinet battle: hamilton vs. jefferson argument card game 8.5c 8.5d 8.14a 8.17a 8.21a">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_dd405ad3966746ecaac42a493dcc3d30~mv2.png" alt="Cabinet Battle: Hamilton vs. Jefferson illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Cabinet Battle: Hamilton vs. Jefferson</div>
+    <div class="teks"><span>8.5C</span><span>8.5D</span><span>8.14A</span><span>8.17A</span><span>8.21A</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-jackson-hero-or-villain-the-evidence-game&type=game&access=teacher" data-search="jackson: hero or villain? — the evidence game evidence-sorting judgment game 8.5g 8.5h 8.17b 8.29d 8.29e">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_d0f3d9b1c0744d0b98607ac6f4f856f7~mv2.png" alt="Jackson: Hero or Villain? — The Evidence Game illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Jackson: Hero or Villain? — The Evidence Game</div>
+    <div class="teks"><span>8.5G</span><span>8.5H</span><span>8.17B</span><span>8.29D</span><span>8.29E</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a></div>
+</section><section class="unit" id="u5">
+  <h2>Unit 5: Westward Expansion</h2>
+  <div class="grid"><a class="card" href="/coming-soon/?item=us-wagons-west&type=game&access=teacher" data-search="wagons west! trail survival game (oregon trail, rebuilt for teks) 8.6b 8.10a 8.10c 8.11a 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_4801f5b902644f0cb155f27a560203fb~mv2.png" alt="Wagons West! illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Wagons West!</div>
+    <div class="teks"><span>8.6B</span><span>8.10A</span><span>8.10C</span><span>8.11A</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-freight-tycoon-wagon-canal-or-rail&type=game&access=teacher" data-search="freight tycoon: wagon, canal, or rail? economics strategy game 8.27a 8.27c 8.12c 8.14b 8.13b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_3c57d3483d14455c98397fa250fac4a8~mv2.png" alt="Freight Tycoon: Wagon, Canal, or Rail? illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Freight Tycoon: Wagon, Canal, or Rail?</div>
+    <div class="teks"><span>8.27A</span><span>8.27C</span><span>8.12C</span><span>8.14B</span><span>8.13B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-war-with-mexico-the-decision-room&type=game&access=teacher" data-search="war with mexico: the decision room cause-effect choice game 8.6c 8.7d 8.10c 8.29b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_2b1376892b514552a93b5d668e51f83d~mv2.png" alt="War with Mexico: The Decision Room illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">War with Mexico: The Decision Room</div>
+    <div class="teks"><span>8.6C</span><span>8.7D</span><span>8.10C</span><span>8.29B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-gold-rush-merchant&type=game&access=teacher" data-search="gold rush merchant quick economics game 8.6b 8.12c 8.14a 8.14b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_56e649a4b1e045b8a32e09a8c5864e99~mv2.png" alt="Gold Rush Merchant illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Gold Rush Merchant</div>
+    <div class="teks"><span>8.6B</span><span>8.12C</span><span>8.14A</span><span>8.14B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a></div>
+</section><section class="unit" id="u6">
+  <h2>Unit 6: Sectionalism</h2>
+  <div class="grid"><a class="card" href="/coming-soon/?item=us-the-compromiser-henry-clay-s-impossible-job&type=game&access=teacher" data-search="the compromiser: henry clay&#x27;s impossible job negotiation strategy game 8.7a 8.7e 8.21c 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_e345b7cb6e244bc7bbf100b8862ce903~mv2.png" alt="The Compromiser: Henry Clay&#x27;s Impossible Job illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">The Compromiser: Henry Clay&#x27;s Impossible Job</div>
+    <div class="teks"><span>8.7A</span><span>8.7E</span><span>8.21C</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-north-to-freedom&type=game&access=teacher" data-search="north to freedom choice-driven journey game (serious tone) 8.7c 8.24a 8.22b 8.23c">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_92567e316cba4048998c2e14f28b1aa0~mv2.png" alt="North to Freedom illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">North to Freedom</div>
+    <div class="teks"><span>8.7C</span><span>8.24A</span><span>8.22B</span><span>8.23C</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-tariff-tug-of-war&type=game&access=teacher" data-search="tariff tug-of-war role-swap economics game 8.7a 8.5c 8.12a 8.17b 8.29d">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_584aff105ac04e8b9053d1f762f51813~mv2.png" alt="Tariff Tug-of-War illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Tariff Tug-of-War</div>
+    <div class="teks"><span>8.7A</span><span>8.5C</span><span>8.12A</span><span>8.17B</span><span>8.29D</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-road-to-disunion-timeline-trials&type=game&access=teacher" data-search="road to disunion: timeline trials sequencing knowledge game 8.7b 8.7e 8.1a 8.29b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_2f2f8e854f104505a8112efa8150cc7c~mv2.png" alt="Road to Disunion: Timeline Trials illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Road to Disunion: Timeline Trials</div>
+    <div class="teks"><span>8.7B</span><span>8.7E</span><span>8.1A</span><span>8.29B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a></div>
+</section><section class="unit" id="u7">
+  <h2>Unit 7: The Civil War</h2>
+  <div class="grid"><a class="card" href="/coming-soon/?item=us-anaconda-the-union-high-command&type=game&access=teacher" data-search="anaconda: the union high command grand strategy game 8.8b 8.8c 8.22a 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_58e70cf5cce44c82b1b61135ab6d6d31~mv2.png" alt="Anaconda: The Union High Command illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Anaconda: The Union High Command</div>
+    <div class="teks"><span>8.8B</span><span>8.8C</span><span>8.22A</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-war-correspondent&type=game&access=teacher" data-search="war correspondent reporting / source-skills game 8.8c 8.29a 8.29d 8.29f 8.30b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_daefb838306c4986a326348310e2e133~mv2.png" alt="War Correspondent illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">War Correspondent</div>
+    <div class="teks"><span>8.8C</span><span>8.29A</span><span>8.29D</span><span>8.29F</span><span>8.30B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-field-hospital-the-clara-barton-game&type=game&access=teacher" data-search="field hospital: the clara barton game triage decision game 8.8a 8.8c 8.23e 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_b148a6c9aa894e1bb932850ef378ae13~mv2.png" alt="Field Hospital: The Clara Barton Game illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Field Hospital: The Clara Barton Game</div>
+    <div class="teks"><span>8.8A</span><span>8.8C</span><span>8.23E</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-civil-war-showdown&type=game&access=teacher" data-search="civil war showdown quiz battle game 8.8a 8.8b 8.8c 8.8d 8.29b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_8a0b05dfc9bd4e4e9dab438e25a33b0a~mv2.png" alt="Civil War Showdown illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Civil War Showdown</div>
+    <div class="teks"><span>8.8A</span><span>8.8B</span><span>8.8C</span><span>8.8D</span><span>8.29B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a></div>
+</section><section class="unit" id="u8">
+  <h2>Unit 8: Reconstruction</h2>
+  <div class="grid"><a class="card" href="/coming-soon/?item=us-bureau-agent-1866&type=game&access=teacher" data-search="bureau agent: 1866 resource-allocation decision game 8.9a 8.9c 8.23c 8.31b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_37fa7e5ed5e14787b0ee516bdf13f6b2~mv2.png" alt="Bureau Agent: 1866 illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Bureau Agent: 1866</div>
+    <div class="teks"><span>8.9A</span><span>8.9C</span><span>8.23C</span><span>8.31B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-the-senator-from-mississippi&type=game&access=teacher" data-search="the senator from mississippi journey / knowledge game 8.9b 8.16b 8.18c 8.22b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_67ad125482e14634be5fc0198c90159f~mv2.png" alt="The Senator from Mississippi illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">The Senator from Mississippi</div>
+    <div class="teks"><span>8.9B</span><span>8.16B</span><span>8.18C</span><span>8.22B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-the-election-of-1876-history-detective&type=game&access=teacher" data-search="the election of 1876: history detective evidence mystery game 8.9c 8.18c 8.29d 8.29e 8.30b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_8cd678819c4f4f6aba8641812644af94~mv2.png" alt="The Election of 1876: History Detective illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">The Election of 1876: History Detective</div>
+    <div class="teks"><span>8.9C</span><span>8.18C</span><span>8.29D</span><span>8.29E</span><span>8.30B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-reconstruction-fact-or-fiction&type=game&access=teacher" data-search="reconstruction: fact or fiction? swipe-style true/false game 8.9a 8.9b 8.9c 8.29d 8.29f">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_0d4a9ca6e3a643e8aec47697873ab6a6~mv2.png" alt="Reconstruction: Fact or Fiction? illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Reconstruction: Fact or Fiction?</div>
+    <div class="teks"><span>8.9A</span><span>8.9B</span><span>8.9C</span><span>8.29D</span><span>8.29F</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a></div>
+</section><section class="unit" id="u9">
+  <h2>Unit 9: Social Studies Skills (Taught All Year)</h2>
+  <div class="grid"><a class="card" href="/coming-soon/?item=us-fact-checker-1800s-edition&type=game&access=teacher" data-search="fact checker: 1800s edition credibility arcade game 8.29a 8.29e 8.29f">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_ba9dd916ccba40b4a195005cd829d517~mv2.png" alt="Fact Checker: 1800s Edition illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Fact Checker: 1800s Edition</div>
+    <div class="teks"><span>8.29A</span><span>8.29E</span><span>8.29F</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-order-up-the-chronology-kitchen&type=game&access=teacher" data-search="order up! the chronology kitchen sequencing speed game 8.29b 8.1a 8.1b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_1cadef47456c4978b941fb64d5eadcf2~mv2.png" alt="Order Up! The Chronology Kitchen illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Order Up! The Chronology Kitchen</div>
+    <div class="teks"><span>8.29B</span><span>8.1A</span><span>8.1B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-the-decision-machine&type=game&access=teacher" data-search="the decision machine problem-solving simulation game 8.31a 8.31b 8.30d 8.22a">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_ee0f2f8452a140bfa15728a9c105c311~mv2.png" alt="The Decision Machine illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">The Decision Machine</div>
+    <div class="teks"><span>8.31A</span><span>8.31B</span><span>8.30D</span><span>8.22A</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a></div>
+</section><section class="unit" id="bonus">
+  <h2>Bonus: Cross-Unit Apps Worth Building Once</h2>
+  <div class="grid"><a class="card" href="/coming-soon/?item=us-era-sorter&type=game&access=teacher" data-search="era sorter course-wide review game 8.1a 8.29b">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_05df16467053407c9cc741c685e2208c~mv2.png" alt="Era Sorter illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Era Sorter</div>
+    <div class="teks"><span>8.1A</span><span>8.29B</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a><a class="card" href="/coming-soon/?item=us-chronos-protocol&type=game&access=teacher" data-search="chronos protocol time-travel mission game 8.1a 8.1b 8.29a 8.29b 8.30a">
+  <img class="art" src="https://static.wixstatic.com/media/8e419d_b661928f1c9f49baa1068cca6f31b88b~mv2.png" alt="Chronos Protocol illustration" loading="lazy">
+  <div class="panel">
+    <span class="kind game">GAME</span>
+    <div class="title">Chronos Protocol</div>
+    <div class="teks"><span>8.1A</span><span>8.1B</span><span>8.29A</span><span>8.29B</span><span>8.30A</span></div>
+    <div class="badges"><span class="badge member">MEMBERSHIP REQUIRED</span><span class="badge teacher">TEACHER ACCESS</span></div>
+  </div>
+</a></div>
+</section>
+<p class="empty-msg" id="usEmptyMsg">No matches found.</p>
+</main>
+
+<div style="text-align:center;margin:0 auto 18px;font-size:14px;font-family:Arial,Helvetica,sans-serif;">
+  <a href="/" style="color:#8fb6e8;font-weight:700;text-decoration:none">&#8962; All Courses</a> &nbsp;&middot;&nbsp;
+  <a href="/texas-history/" style="color:#8fb6e8;font-weight:700;text-decoration:none">Texas History</a> &nbsp;&middot;&nbsp;
+  <a href="/us-history-part-1/" style="color:#8fb6e8;font-weight:700;text-decoration:none">US History Pt 1</a> &nbsp;&middot;&nbsp;
+  <a href="/us-history-part-2/" style="color:#8fb6e8;font-weight:700;text-decoration:none">US History Pt 2</a>
+</div>
+<footer class="site">8th Grade U.S. History &middot; Interactive Apps &amp; Games &middot; TEKS &sect;113.20 (2022) &middot; Union Blue design system</footer>
+<script>
+function usFilterCards(term){
+  term = term.trim().toLowerCase();
+  var cards = document.querySelectorAll('.grid a.card');
+  var anyVisible = {};
+  cards.forEach(function(c){
+    var hay = c.getAttribute('data-search');
+    var match = term === '' || hay.indexOf(term) !== -1;
+    c.classList.toggle('hidden', !match);
+    var sec = c.closest('section.unit');
+    anyVisible[sec.id] = anyVisible[sec.id] || match;
+  });
+  document.querySelectorAll('section.unit').forEach(function(sec){
+    sec.classList.toggle('hidden', !anyVisible[sec.id]);
+  });
+}
+</script>
+</body>
+</html>
