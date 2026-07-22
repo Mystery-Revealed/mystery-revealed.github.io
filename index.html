@@ -3,12 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Texas History Apps · Mystery Revealed EdResources</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%8C%9F%3C/text%3E%3C/svg%3E" />
+<title>History Apps · Mystery Revealed EdResources</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%93%9A%3C/text%3E%3C/svg%3E" />
 <style>
   :root{
     --parchment:#f4e9d2; --parchment-deep:#e9d8b4; --ink:#3a2a18; --ink-soft:#6a533a;
-    --sage:#5c6e4a; --sage-deep:#41512f; --clay:#b5502e; --card:#fffaf0; --line:#cbb68d;
+    --sage:#5c6e4a; --sage-deep:#41512f;
+    --clay:#b5502e; --clay-deep:#8f3c20;
+    --blue:#3f5d7d; --blue-deep:#2c455f;
+    --card:#fffaf0; --line:#cbb68d;
     --shadow:0 6px 22px rgba(58,42,24,.15); --focus:#1c62d6;
   }
   *{box-sizing:border-box;}
@@ -18,124 +21,76 @@
     background:radial-gradient(1200px 600px at 50% -10%, #fbf3df 0%, var(--parchment) 55%, var(--parchment-deep) 100%);
     min-height:100vh;
   }
-  .wrap{max-width:760px; margin:0 auto; padding:28px 16px 16px;}
-  header{text-align:center; margin-bottom:8px;}
-  h1{font-family:Georgia,"Times New Roman",serif; font-size:clamp(28px,5vw,40px); margin:0 0 6px; color:var(--sage-deep);}
-  .lede{margin:0 auto; max-width:560px; color:var(--ink-soft); font-size:clamp(15px,2.4vw,18px);}
-  section.unit{margin-top:26px;}
-  .unit-head{display:flex; align-items:baseline; gap:10px; margin:0 0 10px;}
-  .unit-head .num{
-    font-family:Georgia,serif; font-weight:700; font-size:15px; color:#fff;
-    background:var(--sage); border-radius:8px; padding:2px 10px; white-space:nowrap;
-  }
-  .unit-head h2{
-    font-family:Georgia,serif; font-size:clamp(18px,3vw,22px);
-    margin:0; color:var(--sage-deep); letter-spacing:.2px;
-  }
-  .unit-head .rule{flex:1; border-bottom:1px dashed var(--line); transform:translateY(-4px);}
-  ul.apps{list-style:none; margin:0; padding:0; display:grid; gap:8px;}
-  ul.apps a{
-    display:block; padding:12px 16px; background:var(--card);
-    border:2px solid var(--line); border-radius:12px;
-    color:var(--sage-deep); font-weight:600; text-decoration:none; font-size:16px;
+  .wrap{max-width:640px; margin:0 auto; padding:40px 16px 16px;}
+  header{text-align:center; margin-bottom:26px;}
+  h1{font-family:Georgia,"Times New Roman",serif; font-size:clamp(30px,6vw,44px); margin:0 0 6px; color:var(--ink);}
+  .lede{margin:0 auto; max-width:480px; color:var(--ink-soft); font-size:clamp(15px,2.6vw,18px);}
+  .courses{display:grid; gap:16px; margin-top:8px;}
+  a.course{
+    display:flex; align-items:center; gap:18px;
+    padding:22px 24px;
+    background:var(--card);
+    border:3px solid var(--line); border-radius:18px;
+    text-decoration:none; color:var(--ink);
     transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
   }
-  ul.apps a:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--sage);}
-  ul.apps a:focus-visible{outline:3px solid var(--focus); outline-offset:2px;}
-  nav.collections{margin:28px 0 0; text-align:center; font-size:14px; color:var(--ink-soft);}
-  nav.collections a{color:var(--sage-deep); font-weight:600; text-decoration:none;}
-  nav.collections a:hover{text-decoration:underline;}
-  footer{text-align:center; margin:14px 0 10px; font-size:13px; color:var(--ink-soft);}
-  @media (prefers-reduced-motion:reduce){ ul.apps a{transition:none;} }
+  a.course:hover{transform:translateY(-3px); box-shadow:var(--shadow);}
+  a.course:focus-visible{outline:3px solid var(--focus); outline-offset:3px;}
+  a.course .ico{font-size:44px; line-height:1; flex:0 0 auto;}
+  a.course .txt{min-width:0;}
+  a.course h2{
+    font-family:Georgia,serif; margin:0 0 2px;
+    font-size:clamp(20px,3.6vw,26px); letter-spacing:.2px;
+  }
+  a.course p{margin:0; font-size:clamp(14px,2.4vw,16px); color:var(--ink-soft);}
+  a.course.texas:hover{border-color:var(--sage);}
+  a.course.texas h2{color:var(--sage-deep);}
+  a.course.us1:hover{border-color:var(--clay);}
+  a.course.us1 h2{color:var(--clay-deep);}
+  a.course.us2:hover{border-color:var(--blue);}
+  a.course.us2 h2{color:var(--blue-deep);}
+  footer{text-align:center; margin:34px 0 10px; font-size:13px; color:var(--ink-soft);}
+  @media (max-width:480px){
+    a.course{padding:18px 16px; gap:14px;}
+    a.course .ico{font-size:36px;}
+  }
+  @media (prefers-reduced-motion:reduce){ a.course{transition:none;} }
 </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1>Texas History Apps</h1>
-      <p class="lede">Interactive maps, timelines, and explorers for 7th Grade Texas History — organized by unit.</p>
+      <h1>History Apps</h1>
+      <p class="lede">Interactive maps, games, and explorers from Mystery Revealed EdResources. Pick your course.</p>
     </header>
 
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 1</span><h2>Natural Texas and Its People</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/texas-interactive-map/">Texas Interactive Map: Regions &amp; Native People</a></li>
-        <li><a href="/four-corners-tribe-map/">Four Corners Tribe Map</a></li>
-        <li><a href="/build-a-home-explorer/">Build-a-Home Explorer</a></li>
-        <li><a href="/whats-for-dinner/">What&rsquo;s for Dinner?</a></li>
-      </ul>
-    </section>
+    <div class="courses">
+      <a class="course texas" href="/texas-history/">
+        <span class="ico" aria-hidden="true">🌟</span>
+        <span class="txt">
+          <h2>Texas History</h2>
+          <p>7th Grade · Units 1–8, from Natural Texas to today</p>
+        </span>
+      </a>
 
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 2</span><h2>Age of Contact and Spanish Colonial</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/explorers-routes-map/">Explorers&rsquo; Routes Map</a></li>
-        <li><a href="/anatomy-of-a-mission/">Anatomy of a Mission</a></li>
-        <li><a href="/meet-the-missionaries/">Meet the Missionaries</a></li>
-      </ul>
-    </section>
+      <a class="course us1" href="/us-history-part-1/">
+        <span class="ico" aria-hidden="true">🦅</span>
+        <span class="txt">
+          <h2>US History · Part 1</h2>
+          <p>Exploration and Colonization through 1877</p>
+        </span>
+      </a>
 
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 3</span><h2>Mexican National and Texas Revolution</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/road-to-revolution-timeline/">Road to Revolution Timeline</a></li>
-        <li><a href="/battle-map-of-the-revolution/">Battle Map of the Revolution</a></li>
-        <li><a href="/voices-of-the-revolution/">Voices of the Revolution</a></li>
-      </ul>
-    </section>
+      <a class="course us2" href="/us-history-part-2/">
+        <span class="ico" aria-hidden="true">🗽</span>
+        <span class="txt">
+          <h2>US History · Part 2</h2>
+          <p>1877 to the Present</p>
+        </span>
+      </a>
+    </div>
 
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 4</span><h2>Republic and Early Statehood</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/should-texas-join-the-us/">Should Texas Join the U.S.?</a></li>
-        <li><a href="/houston-vs-lamar/">Houston vs. Lamar</a></li>
-        <li><a href="/border-dispute-map/">Border Dispute Map</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 5</span><h2>Civil War and Reconstruction</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/three-texas-battles/">Three Texas Battles</a></li>
-        <li><a href="/back-door-of-the-confederacy/">Back Door of the Confederacy</a></li>
-        <li><a href="/after-the-war/">After the War</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 6</span><h2>Cotton, Cattle, Railroads, and the Age of Oil</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/cattle-trail/">The Cattle Trail</a></li>
-        <li><a href="/spindletop-anatomy-of-a-gusher/">Spindletop: Anatomy of a Gusher</a></li>
-        <li><a href="/boom-and-bust-meter/">Boom-and-Bust Meter</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 7</span><h2>20th and 21st Century Texas</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/texas-through-the-decades/">Texas Through the Decades</a></li>
-        <li><a href="/dust-bowl-texas/">Dust Bowl Texas</a></li>
-        <li><a href="/voices-for-change/">Voices for Change</a></li>
-      </ul>
-    </section>
-
-    <section class="unit">
-      <div class="unit-head"><span class="num">Unit 8</span><h2>Social Studies Skills</h2><span class="rule"></span></div>
-      <ul class="apps">
-        <li><a href="/read-the-map-four-regions/">Read the Map: Four Regions</a></li>
-        <li><a href="/primary-or-secondary/">Primary or Secondary?</a></li>
-        <li><a href="/spot-the-bias/">Spot the Bias</a></li>
-      </ul>
-    </section>
-
-    <nav class="collections">
-      More collections:
-      <a href="/us-history-part-1/">US History Part 1 · Colonization through 1877</a> ·
-      <a href="/us-history-part-2/">US History Part 2 · 1877 to the Present</a>
-    </nav>
-
-    <footer>Made for 7th Grade Texas History · Mystery Revealed EdResources</footer>
+    <footer>Mystery Revealed EdResources</footer>
   </div>
 </body>
 </html>
