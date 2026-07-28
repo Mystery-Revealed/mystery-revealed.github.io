@@ -72,33 +72,58 @@ function readHub(ref) {
 }
 
 // --------------------------------------------------------------- card parsing
-const CARD_RE =
-  /<a class="card" href="([^"]+)"[\s\S]{0,600}?<div class="title">([^<]+)<\/div>/g;
+/** The six hub pages use three different card dialects. Parse all of them, and shout
+ *  if a page yields no cards at all — silently finding nothing would read as "all clear".
+ *    us-history-part-1[-teacher] : <a class="card" href>        … <div class="title">
+ *    texas-history[-teacher]     : <a class="cardlink" href>    … <div class="title">
+ *    us-history-part-2[-teacher] : <a class="card app|game" href title="…"> … <p class="b-title">
+ */
+const ANCHOR_RE = /<a class="(?:cardlink|card)(?:\s[^"]*)?" href="([^"]+)"([^>]*)>/g;
+const TITLE_RE = /<(?:div|p) class="(?:title|b-title)">([^<]+)</;
 
-function cards(html) {
+const decode = (s) => s
+  .replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&')
+  .replace(/&quot;/g, '"').replace(/&mdash;/g, '—').replace(/&nbsp;/g, ' ').trim();
+
+function cards(html, { strict = true } = {}) {
   const m = new Map();
-  for (const c of html.matchAll(CARD_RE)) m.set(c[2].trim(), c[1]);
+  for (const a of html.matchAll(ANCHOR_RE)) {
+    const href = a[1];
+    const inner = html.slice(a.index, a.index + 1400).match(TITLE_RE);
+    const attr = a[2].match(/\btitle="([^"]*)"/);
+    const title = decode(inner ? inner[1] : attr ? attr[1] : href);
+    m.set(title, href);
+  }
+  // Distinguish "this page has no cards" (pre-redesign history) from "the markup changed
+  // and I parsed nothing" — the second must never pass silently as an all-clear.
+  if (strict && m.size === 0 && /class="(?:cardlink|card)[\s"]/.test(html))
+    die(`parsed 0 cards from ${PATH_} even though card markup is present — the dialect ` +
+        `changed and this tool would give a false all-clear. Fix ANCHOR_RE/TITLE_RE first.`);
   return m;
 }
 const isLive = (href) => !href.includes('/coming-soon/');
 const liveSet = (html) =>
   new Set([...cards(html).values()].filter(isLive));
 
-/** Card titles and coming-soon slugs are the same string under one transform, so a card
- *  stays identifiable by slug even AFTER it is flipped and the ?item= slug disappears.
- *  "Freight Tycoon: Wagon, Canal, or Rail?" -> us-freight-tycoon-wagon-canal-or-rail */
+/** On the us-history-part-1 hubs the coming-soon slug is exactly the title under this
+ *  transform, which lets a card stay identifiable even AFTER it is flipped and its
+ *  ?item= slug disappears. "Freight Tycoon: Wagon, Canal, or Rail?" ->
+ *  us-freight-tycoon-wagon-canal-or-rail. NOT true on us-history-part-2, which uses
+ *  short hand-written slugs ("boss-tweed" for "Boss Tweed's Money Machine") — so this
+ *  is only ever a fallback, never the primary match. */
 const slugOfTitle = (title) =>
-  'us-' + title
-    .replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&')
-    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  decode(title).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+/** Course prefixes are not part of the title, so compare without them. */
+const bare = (slug) => slug.replace(/^(?:us|texas)-/, '');
 
-/** Resolve a slug to exactly one card, flipped or not. Returns {title, href} or null. */
+const itemSlug = (href) => (href.match(/\/coming-soon\/\?item=([^&"]+)/) || [])[1];
+
+/** Resolve a slug to exactly one card. Returns {title, href} or null.
+ *  Primary match is the ?item= slug, which is dialect-independent. */
 function findCard(html, slug) {
-  for (const [title, href] of cards(html)) {
-    if (slugOfTitle(title) === slug) return { title, href };
-    const m = href.match(/\/coming-soon\/\?item=([^&"]+)/);
-    if (m && m[1] === slug) return { title, href };
-  }
+  const all = [...cards(html)];
+  for (const [title, href] of all) if (itemSlug(href) === slug) return { title, href };
+  for (const [title, href] of all) if (bare(slugOfTitle(title)) === bare(slug)) return { title, href };
   return null;
 }
 
@@ -128,10 +153,16 @@ async function assertServing(url) {
 function applyFlip(html, slug, url) {
   const card = findCard(html, slug);
   if (!card) {
-    const near = [...cards(html).keys()].map(slugOfTitle)
-      .filter((s) => s.includes(slug.replace(/^us-/, '').split('-')[0]));
+    const stem = bare(slug).split('-')[0];
+    const near = [...cards(html)]
+      .map(([t, h]) => itemSlug(h) || slugOfTitle(t))
+      .filter((s) => s.includes(stem));
+    // Report an existing user of this URL, but never treat it as success — doing so
+    // silently no-op'd a typo'd slug during testing.
+    const holder = [...cards(html)].find(([, h]) => h === url);
     die(`no card matches slug "${slug}" in ${PATH_}.` +
-        (near.length ? `\n  Closest slugs:\n${near.map((n) => '    ' + n).join('\n')}` : ''));
+        (near.length ? `\n  Closest slugs:\n${near.map((n) => '    ' + n).join('\n')}` : '') +
+        (holder ? `\n  Note: ${url}\n        is already linked from "${holder[0]}".` : ''));
   }
   // Already flipped? Only a no-op when THIS card points at THIS url.
   if (isLive(card.href)) {
@@ -210,9 +241,10 @@ async function audit(checkUrls) {
     .map((c) => ({ sha: c.sha, date: c.commit.author.date, msg: c.commit.message.split('\n')[0] }))
     .reverse();
 
-  const everLive = new Map(); const regressions = []; let prev = null;
+  const everLive = new Map(); const regressions = []; let prev = null; let skipped = 0;
   for (const c of commits) {
     const cur = cards(readHub(c.sha).html);
+    if (cur.size === 0) { skipped++; continue; }   // version predates the card design
     if (prev) for (const [title, href] of cur) {
       const p = prev.get(title);
       if (p && isLive(p) && !isLive(href)) regressions.push({ title, lost: p, at: c.sha.slice(0, 8), msg: c.msg, date: c.date.slice(0, 10) });
@@ -221,7 +253,9 @@ async function audit(checkUrls) {
     prev = cur;
   }
 
-  console.log(`\n${commits.length} versions · ${prev.size} cards · ${[...prev.values()].filter(isLive).length} live · ${[...prev.values()].filter((h) => !isLive(h)).length} coming-soon`);
+  console.log(`\n${commits.length} versions${skipped ? ` (${skipped} pre-card-design, skipped)` : ''} · ` +
+    `${prev.size} cards · ${[...prev.values()].filter(isLive).length} live · ` +
+    `${[...prev.values()].filter((h) => !isLive(h)).length} coming-soon`);
   console.log(`\nRegressions in history: ${regressions.length}`);
   for (const r of regressions) console.log(`  ${r.date} ${r.at}  ${r.title}\n      lost: ${r.lost}\n      by:   ${r.msg}`);
 
